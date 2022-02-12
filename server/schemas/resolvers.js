@@ -83,4 +83,13 @@ const resolvers = {
 
         throw new AuthenticationError('Not logged in');
     },
+    deleteProduct: async (parent, { productId }, context) => {
+        if (context.user) {
+            const updatedProduct = await User.findByIdAndUpdate(
+                { _id: context.user._id },
+                { $pull: { ProductInfo: productId } },
+                { new: true }
+            )
+        }
+    },
 }

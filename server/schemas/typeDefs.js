@@ -29,5 +29,14 @@ type Product {
 
   }
 
+  input ProductInfo {
+    productId: ID
+    productName: String!
+    description: String
+    price: Float!
+    image: String
+    username: String!
+    title: String! 
+  }
 
 `
