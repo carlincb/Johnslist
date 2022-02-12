@@ -4,6 +4,22 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+        categories: async () => Category.find(),
+        products: async (parent, { category, name }) => {
+            const params = {};
+
+            if (category) {
+                params.category = category;
+            }
+
+            if (name) {
+                params.name = {
+                    $regex: name,
+                };
+            }
+
+            return Product.find(params).populate('category');
+        },
         user: async (parent, args, context) => {
             if (context.user) {
                 const user = await User.findById(context.user.id).populate({
@@ -52,5 +68,28 @@ const resolvers = {
 
             return { token, user };
         }
-    }
+    },
+    addOrder: async (parent, { products }, context) => {
+        console.log(context);
+        if (context.user) {
+            const order = new Order({ products });
+
+            await User.findByIdAndUpdate(context.user.id, {
+                $push: { orders: order },
+            });
+
+            return order;
+        }
+
+        throw new AuthenticationError('Not logged in');
+    },
+    deleteProduct: async (parent, { productId }, context) => {
+        if (context.user) {
+            const updatedProduct = await User.findByIdAndUpdate(
+                { _id: context.user._id },
+                { $pull: { ProductInfo: productId } },
+                { new: true }
+            )
+        }
+    },
 }
