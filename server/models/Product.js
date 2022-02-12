@@ -20,6 +20,10 @@ const productSchema = new Schema(
             type: String,
             required: true
         },
+        price: {
+            type: Float,
+            required: true
+        },
         addedAt: {
             type: Date,
             default: Date.now,
