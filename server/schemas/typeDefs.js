@@ -8,9 +8,9 @@ type User {
     username: String!
     email: String!
     password: String!
-    # listed?
-    # bought?
-
+    isSeller: Boolean!
+    wishlist: [Product]
+    listedItems: [Product]
 }
 
 type Category {
