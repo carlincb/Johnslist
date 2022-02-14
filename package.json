@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/carlincb/johnslist/issues"
   },
-  "homepage": "https://github.com/carlincb/johnslist#readme"
+  "homepage": "https://github.com/carlincb/johnslist#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
 }

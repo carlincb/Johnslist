@@ -31,16 +31,16 @@ function Header(props) {
             <a href="/" id="home-link"><img src="./images/kintsugi_logo.png" alt="Go to Kintsugi home page"/></a>
             <nav id="sale-nav">
                 {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
-                {() =>  { dropdownMenus.map(menu => {
+                {dropdownMenus.map(menu => (
                     <span class="dropdown-block">
                         <button className="link-dropdown" ariaLabel={menu.ariaLabel}>{menu.title}<i></i></button>
                         <div class="link-section">
-                        {() => {menu.linkInfo.map(newLink => {
+                        {menu.linkInfo.map(newLink => (
                             <a href={newLink.href}>{newLink.text}</a>
-                        })}}
+                        ))}
                         </div>
                     </span>
-                })}}
+                ))}
             </nav>
             <nav id="login-info-nav">
                 <a href="about">About Us</a>
