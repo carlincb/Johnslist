@@ -4,7 +4,7 @@ function Header(props) {
     var importedCategories = [{href: 'fake-category', text: 'Fake Category'}];
 
     //TODO: Add a loop that appends category data to the imported categories array when the site is more complete. 
-    
+
     //Toggles between light and dark themes
     const [ siteTheme, setSiteTheme ] = useState('./css/light.css');
     //array the stores objects that are used to render the dropdown menus
@@ -53,3 +53,5 @@ function Header(props) {
         </header>
     )
 }
+
+export default Header;
