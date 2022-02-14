@@ -1,3 +1,10 @@
+:root {
+  --ks-primary: #fec234;
+  --ks-secondary: #333333;
+  --ks-highlight: #eeeeee;
+  --ks-background: #37435b;
+}
+
 .App {
   text-align: center;
 }
