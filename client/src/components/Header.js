@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Header(props) {
-
+    const [ siteTheme, setSiteTheme ] = useState('./css/light.css');
     const dropdownMenus = [
         {
             title: "Sell",
@@ -35,7 +35,11 @@ function Header(props) {
                     </span>
                 })}
             </nav>
-            
+            <nav id="login-info-nav">
+                <a href="about">About Us</a>
+                <a href="login" id="login-link">Login</a>
+            </nav>
+            <input type="checkbox" ariaLabel="Theme toggle button" id="them-toggle"/>
         </header>
     )
 }
