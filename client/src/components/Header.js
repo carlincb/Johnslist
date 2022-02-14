@@ -23,12 +23,19 @@ function Header(props) {
     return (
         <header>
             <a href="/" id="home-link"><img src="./images/kintsugi_logo.png" alt="Go to Kintsugi home page"/></a>
-
             <nav id="sale-nav">
                 {dropdownMenus.map(menu => {
-                    <button className="link-dropdown">{menu.title}<i></i></button>
+                    <span class="dropdown-block">
+                        <button className="link-dropdown" ariaLabel={menu.ariaLabel}>{menu.title}<i></i></button>
+                        <div class="link-section">
+                        {menu.linkInfo.map(newLink => {
+                            <a href={newLink.href}>{newLink.text}</a>
+                        })}
+                        </div>
+                    </span>
                 })}
             </nav>
+            
         </header>
     )
 }
