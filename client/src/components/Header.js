@@ -35,9 +35,9 @@ function Header(props) {
                 {dropdownMenus.map(menu => (
                     <span class="dropdown-block">
                         <button className="link-dropdown" ariaLabel={menu.ariaLabel}>{menu.title}<i></i></button>
-                        <div class="link-section">
+                        <div className="link-section dropdown-menu flex column">
                         {menu.linkInfo.map(newLink => (
-                            <a href={newLink.href}>{newLink.text}</a>
+                            <a href={newLink.href} className="dropdown-item">{newLink.text}</a>
                         ))}
                         </div>
                     </span>
@@ -51,6 +51,10 @@ function Header(props) {
             <input type="checkbox" ariaLabel="Theme toggle button" id="them-toggle" 
             onChange={() => siteTheme === './css/light.css' ? 
             setSiteTheme('./css/dark.css') : setSiteTheme('./css/light.css')}/>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"
+            integrity="sha384-3ziFidFTgxJXHMDttyPJKDuTlmxJlwbSkojudK/CkRqKDOmeSbN6KLrGdrBQnT2n" crossorigin="anonymous"></script>
         </header>
     )
 }
