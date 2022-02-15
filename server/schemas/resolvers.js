@@ -42,6 +42,7 @@ const resolvers = {
 
             return { token, user };
         },
+
         updateUser: async (parent, args, context) => {
             if (context.user) {
                 return User.findByIdAndUpdate(context.user.id, args, {
@@ -51,6 +52,7 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
+
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
