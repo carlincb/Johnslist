@@ -67,29 +67,42 @@ const resolvers = {
             const token = signToken(user);
 
             return { token, user };
-        }
-    },
-    addOrder: async (parent, { products }, context) => {
-        console.log(context);
-        if (context.user) {
-            const order = new Order({ products });
+        },
 
-            await User.findByIdAndUpdate(context.user.id, {
-                $push: { orders: order },
-            });
 
-            return order;
-        }
+        addOrder: async (parent, { products }, context) => {
+            console.log(context);
+            if (context.user) {
+                const order = new Order({ products });
 
-        throw new AuthenticationError('Not logged in');
-    },
-    deleteProduct: async (parent, { productId }, context) => {
-        if (context.user) {
-            const updatedProduct = await User.findByIdAndUpdate(
-                { _id: context.user._id },
-                { $pull: { ProductInfo: productId } },
-                { new: true }
-            )
-        }
-    },
+                await User.findByIdAndUpdate(context.user.id, {
+                    $push: { orders: order },
+                });
+
+                return order;
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
+
+        addProduct: async (parent, { productId }, context) => {
+            if (context.user) {
+                const newProduct = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { ProductInfo: productId } },
+                    { new: true }
+                )
+            }
+        },
+
+        deleteProduct: async (parent, { productId }, context) => {
+            if (context.user) {
+                const updatedProduct = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { ProductInfo: productId } },
+                    { new: true }
+                )
+            }
+        },
+    }
 }
