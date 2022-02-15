@@ -30,7 +30,7 @@ function Header(props) {
         <header>
             <link rel="stylesheet" href={siteTheme}/>
             <a href="/" id="home-link"><img src="./images/kintsugi_logo.png" alt="Go to Kintsugi home page"/></a>
-            <nav id="sale-nav">
+            <nav id="sale-nav" className="navbar">
                 {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
                 {dropdownMenus.map(menu => (
                     <span class="dropdown-block">

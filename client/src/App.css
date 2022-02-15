@@ -1,9 +1,13 @@
+/******** Root styles and color pallete ********/
+
 :root {
   --ks-primary: #fec234;
   --ks-secondary: #333333;
   --ks-highlight: #eeeeee;
   --ks-background: #37435b;
 }
+
+/******** Basic site styles ********/
 
 body {
   background-color: var(--ks-highlight);
@@ -14,6 +18,19 @@ header {
   background-color: rgba(0, 0, 0, 0);
   margin-bottom: 0vh;
 }
+
+/******** Classes for styling specific items ********/
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/******** Classes for layout and grid use ********/
+
+/******** unique id styles ********/
+
+/******** Default React styles that can be removed ********/
 
 .App {
   text-align: center;
