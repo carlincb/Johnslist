@@ -11,6 +11,7 @@ type User {
     isSeller: Boolean!
     wishlist: [Product]
     listedItems: [Product]
+    orders: [Order]
 }
 
 type Category {
@@ -26,7 +27,17 @@ type Product {
     image: String
     price: Float!
     category: Category!
+  }
 
+  type Order{
+    _id: ID
+    purchaseDate: String
+    products:[Product]
+  }
+
+  type Auth{
+    token: ID
+    user: User
   }
 
   input ProductInfo {
@@ -37,6 +48,10 @@ type Product {
     image: String
     username: String!
     title: String! 
+  }
+
+  type Checkout{
+    session: ID
   }
   
   type Query {
@@ -53,5 +68,6 @@ type Product {
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    addProduct(): Product
   }
 `

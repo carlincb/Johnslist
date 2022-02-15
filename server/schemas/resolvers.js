@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category } = require('../models');
 const { signToken } = require('../utils/auth');
+const stripe =  require('stripe')('pk_test_51KTa8QCxCqBFbeLD8nOEHQnUabzbGn2fbkqygSNUyPhv1md8P0O6YX7BUmu4H84v7vji6Ul2t2kmJV4IGAEIoruw00IWyaOXr3')
 
 const resolvers = {
     Query: {
@@ -39,6 +40,51 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
+        order: async(parent, {_id}, context) =>{
+            if (context.user){
+                const user = await User.findById(context.user._id).populate({
+                    path: 'orders.products', 
+                    populate: 'category'
+                })
+                return user.orders.id(_id)
+            }
+            throw new AuthenticationError('please log in')
+        },
+        checkout: async(parent, args, context) => {
+            const url =  new URL(context.headers.referer).origin;
+            const order =  new Order({products: args.products});
+            const items =  []
+
+            const {products} = await order.populate('products').execPopulate();
+
+            for (let i = 0; i < products.length; i++) {
+                const product =  await stripe.products.create({
+                    name: products[i].name,
+                    description: products[i].description,
+                    images: [`${url}/images/${products[i].image}`]
+                })  
+
+                const price =  await stripe.prices.create({
+                    product: product.id,
+                    unit_amount: products[i].price,
+                    currency: 'usd'
+                })
+                items.push({
+                    price: price.id, 
+                    quantity: 1
+                })
+                
+            }
+            const session =  await stripe.checkout.sessions.create({
+                payment_method_types: ['card'],
+                items,
+                mode: 'payment',
+                sucees_url: `${url}/sucess?session_id={}`,//pass in the checkout session id
+                cancel_url: `${url}/`
+            })
+
+            return {session: session.id}
+        }
     },
     Mutation: {
         addUser: async (parent, args) => {
@@ -92,13 +138,18 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
-        addProduct: async (parent, { productId }, context) => {
+        addProduct: async (parent, args , context) => {
             if (context.user) {
-                const newProduct = await User.findByIdAndUpdate(
+                //add product needs to be pushed to the sell
+                const product = await Product.create(args);
+
+                const updatedUser= await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { ProductInfo: productId } },
+                    { $push: { listedItems: product._id} },
                     { new: true }
                 )
+
+                return updatedUser;
             }
         },
 
