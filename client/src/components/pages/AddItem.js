@@ -1,5 +1,4 @@
 import React from "react";
-import { DropDownList } from "@progress/kendo-react-dropdowns";
 
 
 export default function AddItemPage() {

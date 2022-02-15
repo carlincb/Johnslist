@@ -4,7 +4,9 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        categories: async () => Category.find(),
+        categories: async () => {
+            return await Category.find()
+        },
         products: async (parent, { category, name }) => {
             const params = {};
 
@@ -19,6 +21,9 @@ const resolvers = {
             }
 
             return Product.find(params).populate('category');
+        },
+        product: async (parent, { _id }) => {
+            return await Product.findById(_id).populate('category');
         },
         user: async (parent, args, context) => {
             if (context.user) {
