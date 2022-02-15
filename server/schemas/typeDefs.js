@@ -38,5 +38,4 @@ type Product {
     username: String!
     title: String! 
   }
-
 `
