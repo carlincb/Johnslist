@@ -5,6 +5,7 @@
   --ks-secondary: #333333;
   --ks-highlight: #eeeeee;
   --ks-background: #37435b;
+  --transparent: rgba(0, 0, 0, 0);
 }
 
 /******** Basic site styles ********/
@@ -15,7 +16,7 @@ body {
 
 header {
   display: flex;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: var(--transparent);
   margin-bottom: 0vh;
 }
 
@@ -31,11 +32,16 @@ header {
 .card {
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   flex-direction: column;
   background-color: white;
   border-radius: 4%;
   padding: 0%;
+}
+
+.link-dropdown {
+  border-color: var(--transparent);
+  background-color: var(--transparent);
 }
 
 /* Mobile responsive */
@@ -60,6 +66,10 @@ header {
 
 .inline-block {
   display: inline-block;
+}
+
+.column {
+  flex-direction: column;
 }
 
 /******** unique id styles ********/
