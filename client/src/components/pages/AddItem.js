@@ -1,4 +1,5 @@
 import React from "react";
+import { DropDownList } from "@progress/kendo-react-dropdowns";
 
 
 export default function AddItemPage() {
@@ -8,6 +9,8 @@ export default function AddItemPage() {
     const [description, setDescription] = React.useState("");
     const [price, setPrice] = React.useState('');
     const [category, setCategory] = React.useState('');
+    const categories = ["Household", "Clothing", "Outdoor", "Collectible", "Appliances", "Miscellaneous"];
+
 
     const handleSubmit = (event) => {
 
@@ -27,6 +30,7 @@ export default function AddItemPage() {
                     onChange={e => setCategory(e.target.value)}
                     required />
                 <option key=""></option>
+                {/* Need to work out how we pull the categories */}
                 {categories.map(category => (
                     <option key={category}>{category}</option>
                 ))}
