@@ -8,7 +8,7 @@ import { REMOVE_PRODUCT } from '../../utils/mutations';
 const UserProducts = () => {
     const { data } = useQuery(MY_PRODUCTS);
 
-    const userData = data?.user || {};
+    const userData = data?.user.listedItems || {};
 
     const [deleteProduct, { error }] = useMutation(REMOVE_PRODUCT);
 
@@ -36,7 +36,7 @@ const UserProducts = () => {
             <Container>
                 <h2>
                     {userData.savedProducts.length
-                        ? `Viewing ${userData.savedBooks.length} saved ${userData.savedProducts.length === 1 ? 'product' : 'products'}:`
+                        ? `Viewing ${userData.savedProducts.length} saved ${userData.savedProducts.length === 1 ? 'product' : 'products'}:`
                         : 'You have no products for sale!'}
                 </h2>
                 <div>
