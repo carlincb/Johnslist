@@ -2,10 +2,6 @@ const { Schema, Types } = require('mongoose');
 
 const productSchema = new Schema(
     {
-        productId: {
-            type: Schema.Types.ObjectId(),
-            default: () => new Types.ObjectId()
-        },
         productName: {
             type: String,
             required: true
@@ -21,7 +17,7 @@ const productSchema = new Schema(
             required: true
         },
         price: {
-            type: Float,
+            type: Number,
             required: true
         },
         addedAt: {

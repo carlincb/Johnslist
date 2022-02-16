@@ -70,4 +70,6 @@ type Product {
     login(email: String!, password: String!): Auth
     addProduct(): Product
   }
-`
+`;
+
+module.exports = typeDefs;
