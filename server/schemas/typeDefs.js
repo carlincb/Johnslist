@@ -11,6 +11,7 @@ type User {
     isSeller: Boolean!
     wishlist: [Product]
     listedItems: [Product]
+    orders: [Order]
 }
 
 type Category {
@@ -26,7 +27,17 @@ type Product {
     image: String
     price: Float!
     category: Category!
+  }
 
+  type Order{
+    _id: ID
+    purchaseDate: String
+    products:[Product]
+  }
+
+  type Auth{
+    token: ID
+    user: User
   }
 
   input ProductInfo {
@@ -38,4 +49,27 @@ type Product {
     username: String!
     title: String! 
   }
-`
+
+  type Checkout{
+    session: ID
+  }
+  
+  type Query {
+    categories: [Category]
+    products(category: ID, name: String): [Product]
+    product(_id: ID!): Product
+    user: User
+    order(_id: ID!): Order
+    checkout(products: [ID]!): Checkout
+  }
+
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addOrder(products: [ID]!): Order
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    login(email: String!, password: String!): Auth
+    addProduct(): Product
+  }
+`;
+
+module.exports = typeDefs;

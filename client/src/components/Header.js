@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useQuery } from '@apollo/client';
 
 function Header(props) {
     var importedCategories = [{href: 'fake-category', text: 'Fake Category'}];
