@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from '@apollo/client';
-import { ADD_PRODUCT } from '../utils/mutations';
+import { ADD_PRODUCT } from '../../utils/mutations';
 
 import ImageUploads from "../ImageUploads";
 
-const AddProductPage = () => {
+const addProductPage = () => {
     const [productName, setProductName] = React.useState("");
     const [username, setUsername] = React.useState("");
     // const [image, setImage] = React.useState("");
@@ -19,8 +19,9 @@ const AddProductPage = () => {
     //     "Appliances",
     //     "Miscellaneous",
     // ];
+    const [addProduct, { error }] = useMutation(ADD_PRODUCT);
 
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
 
         try {
@@ -32,21 +33,12 @@ const AddProductPage = () => {
             console.error(err);
         }
 
-
-
     };
-
-
-
-
-
-
-
     return (
         // select category
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleFormSubmit}>
             <h1>Ready to add what could be someone's treasure?</h1>
-            <label>
+            {/* <label>
                 Select the category you feel this fits in:
                 <select
                     name="category"
@@ -56,29 +48,16 @@ const AddProductPage = () => {
                 />
                 <option key=""></option>
                 {/* Need to work out how we pull the categories */}
-                {categories.map((category) => (
-                    <option key={category}>{category}</option>
-                ))}
-            </label>
-
-            <label>
-                Your Username:
-                <input
-                    name="username"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-            </label>
+            {/* {categories.map((category) => (
+                <option key={category}>{category}</option>
+            ))} */}
+            {/* </label> * /} */}
+            < label > Your Username:
+                <input name="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+            </label >
             <label>
                 Product Name:
-                <input
-                    name="product"
-                    type="text"
-                    value={productName}
-                    onChange={(e) => setProduct(e.target.value)}
-                    required
+                <input name="product" type="text" value={productName} onChange={(e) => setProductName(e.target.value)} required
                 />
             </label>
             <label>
@@ -95,25 +74,14 @@ const AddProductPage = () => {
             </label>
             <label>
                 Description:
-                <input
-                    name="description"
-                    type="text"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
+                <input name="description" type="text" value={description} onChange={(e) => setDescription(e.target.value)} required />
             </label>
             <label>
-                <input
-                    name="price"
-                    type="text"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    required
-                />
+                <input name="price" type="text" value={price} onChange={(e) => setPrice(e.target.value)} required />
             </label>
-
             <button>Submit</button>
-        </form>
+        </form >
     );
 }
+
+export default addProductPage;
