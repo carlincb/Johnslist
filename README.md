@@ -8,10 +8,10 @@ Well, we have a place for you–Kintsugi! Our website incorporates the philosoph
 
 Kintsugi is a place where sellers of janky stuff meet with their discerning buyers. Delight in the secondhand splendors that are on offer, peruse the slightly tarnished wares, and revel in the world of “what could be” were just the right person to come upon it!
 
-    									~ Come Visit Us Today!
+[~ Come Visit Us Today!](https://kintsugi-johnslist.herokuapp.com/)
 
 **Tools & Skills Used**<br>
-React, Webpack, Heroku, MongoDB, React Router DOM, HTML, CSS, and Bootstrap.
+React, React Router DOM, Webpack, Heroku, MongoDB, Mongoose ODM, JWT, GraphQL, Node, Express, JavaScript, HTML, and CSS.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -136,7 +136,7 @@ Please see below for examples of this application's usage:
 
 ## Contributing
 
-No contributions needed at this time, but please feel free to contact me at my email address below if you would like to contact me about this project.
+No contributions needed at this time, but please feel free to contact us at the email address below if you would like to contact us about this project.
 
 ## Links
 
