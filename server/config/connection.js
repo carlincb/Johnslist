@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/kintsugidb', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/kintsugi', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
