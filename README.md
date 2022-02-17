@@ -8,10 +8,10 @@ Well, we have a place for you–Kintsugi! Our website incorporates the philosoph
 
 Kintsugi is a place where sellers of janky stuff meet with their discerning buyers. Delight in the secondhand splendors that are on offer, peruse the slightly tarnished wares, and revel in the world of “what could be” were just the right person to come upon it!
 
-    									~ Come Visit Us Today!
+[~ Come Visit Us Today!](https://kintsugi-johnslist.herokuapp.com/)
 
 **Tools & Skills Used**<br>
-React, Webpack, Heroku, MongoDB, React Router DOM, HTML, CSS, and Bootstrap.
+React, React Router DOM, Webpack, Heroku, MongoDB, Mongoose ODM, JWT, GraphQL, Node, Express, JavaScript, HTML, and CSS.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -36,7 +36,34 @@ GIVEN an ecommerce platform
 WHEN I load the homepage
 THEN I am presented with a page containing a header, a section for content
 WHEN I view the header
-THEN ...
+THEN I am presented with options for selling, buying, categories, and login
+WHEN I click on the login page
+THEN I am presented with a login page with inputs for email and password
+WHEN I enter the email and password
+THEN I am presented with the option to click the login button or sign up for a new account
+WHEN I click on the sign up link
+THEN I am presented with a sign up page with an email input, password input, and sign up button
+WHEN I am logged in
+THEN I am presented with the launch page for user or seller and a logout button is included in the navbar
+WHEN I am logged in as the seller
+THEN I am presented with my gallery of items I have on sale and the option to add an item to the gallery
+WHEN I click on the button to add an item
+THEN I am taken to the page for adding items with the full product details
+WHEN I am on the product details page as a seller
+THEN I have the ability to add an image, include a product description, include a price, and add it to the gallery
+WHEN I click the button to add it to the gallery
+THEN I am taken back to the gallery page
+WHEN I am logged in as the buyer
+THEN I am presented with gallery of possible products to buy
+WHEN I click on an item then I am taken to the product details page for buyers
+WHEN I am in the product details page as a buyer
+THEN I am presented with an image of the product, product details, the item price, and add to cart button
+WHEN I click on the add to cart button
+THEN I am presented with a pop-up window thanking me for my purchase and a button to return to the gallery
+WHEN I click on return to gallery
+THEN I return to the product gallery page for buyers
+WHEN I click on the logout button
+THEN I am logged out
 ```
 
 ## Installation
@@ -87,7 +114,7 @@ Please see below for examples of this application's usage:
 
     MIT License
 
-    Copyright (c) 2022 COLLEEN FIMISTER
+    Copyright (c) 2022 COLLEEN FIMISTER, JOHN GALLAGHER, JACK MCNARY, ZACHARY ELLIOTT, MATT THURBER, ZAYMON GONZALEZ
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -109,7 +136,7 @@ Please see below for examples of this application's usage:
 
 ## Contributing
 
-No contributions needed at this time, but please feel free to contact me at my email address below if you would like to contact me about this project.
+No contributions needed at this time, but please feel free to contact us at the email address below if you would like to contact us about this project.
 
 ## Links
 
