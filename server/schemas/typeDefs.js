@@ -64,11 +64,15 @@ type Product {
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!,
+    password: String!): Auth
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     addProduct(productData: ProductInfo): Product
+    deleteProduct(productData: ProductInfo): Product
+
+
   }
 `;
 
