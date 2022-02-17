@@ -11,7 +11,7 @@ Kintsugi is a place where sellers of janky stuff meet with their discerning buye
 [~ Come Visit Us Today!](https://kintsugi-johnslist.herokuapp.com/)
 
 **Tools & Skills Used**<br>
-React, React Router DOM, Webpack, Heroku, MongoDB, Mongoose ODM, JWT, GraphQL, Node, Express, JavaScript, HTML, and CSS.
+React, React Router DOM, Webpack, Heroku, MongoDB, Mongoose ODM, JWT, GraphQL, Node, Express, JavaScript, HTML, CSS, and Styled Components.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -104,6 +104,8 @@ Please see below for examples of this application's usage:
 
 ![11](client/public/images/11.png)
 
+- https://styled-components.com/
+- https://www.youtube.com/watch?v=-FZzPHSLauc&ab_channel=PedroTech
 - https://www.figma.com/
 - https://www.designify.com/
 - https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
