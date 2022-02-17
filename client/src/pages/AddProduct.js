@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from '@apollo/client';
-import { ADD_PRODUCT } from '../../utils/mutations';
+import { ADD_PRODUCT } from '../utils/mutations';
 
-import ImageUploads from "../ImageUploads";
+import ImageUploads from "../components/ImageUploads";
 
 const addProductPage = () => {
     const [productName, setProductName] = React.useState("");

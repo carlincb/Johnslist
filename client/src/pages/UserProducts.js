@@ -2,8 +2,8 @@ import React from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { Container } from 'react-bootstrap';
 // import Auth from '../utils/auth';
-import { MY_PRODUCTS } from '../../utils/queries';;
-import { REMOVE_PRODUCT } from '../../utils/mutations';
+import { MY_PRODUCTS } from '../utils/queries';;
+import { REMOVE_PRODUCT } from '../utils/mutations';
 
 const UserProducts = () => {
     const { data } = useQuery(MY_PRODUCTS);
