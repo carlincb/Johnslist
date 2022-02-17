@@ -4,11 +4,11 @@
 
 Do you have stuff in your house that is broken but not quite junk? Maybe it’s a swivel chair that’s missing a wheel, a piece of electronics with wiring that needs to be soldered or a shirt with a rip in it. We're sure you do! Or, are you someone who has the skills to fix things, but not necessarily the cash to buy the best of the best?
 
-Well, we have a place for you–Kintsugi! Our website incorporates the philosophy of Kintsugi the Japanese art of using gold to put pottery back together. With this in mind, we provide users with the option to buy and sell broken items that they may want to fix themselves and give a second life. 
+Well, we have a place for you–Kintsugi! Our website incorporates the philosophy of Kintsugi the Japanese art of using gold to put pottery back together. With this in mind, we provide users with the option to buy and sell broken items that they may want to fix themselves and give a second life.
 
 Kintsugi is a place where sellers of janky stuff meet with their discerning buyers. Delight in the secondhand splendors that are on offer, peruse the slightly tarnished wares, and revel in the world of “what could be” were just the right person to come upon it!
 
-										~ Come Visit Us Today!
+    									~ Come Visit Us Today!
 
 **Tools & Skills Used**<br>
 React, Webpack, Heroku, MongoDB, React Router DOM, HTML, CSS, and Bootstrap.
@@ -33,7 +33,7 @@ SO THAT I can buy and sell broken items
 
 ```md
 GIVEN an ecommerce platform
-WHEN I load the home
+WHEN I load the homepage
 THEN I am presented with a page containing a header, a section for content
 WHEN I view the header
 THEN ...
@@ -50,7 +50,8 @@ Please see below for examples of this application's usage:
 ### Workflow
 
 ![0a](client/public/images/0a.png)
-![0b](client/public/images/0a.png)
+
+![0b](client/public/images/0b.png)
 
 ### Mockups
 
@@ -75,9 +76,6 @@ Please see below for examples of this application's usage:
 ![10](client/public/images/10.png)
 
 ![11](client/public/images/11.png)
-
-![12](client/public/images/12.png)
-
 
 - https://www.figma.com/
 - https://www.designify.com/
