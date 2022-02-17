@@ -139,7 +139,7 @@ const resolvers = {
         },
 
 
-        addProduct: async (parent, { productData } , context) => {
+        addProduct: async (parent, { productData }, context) => {
 
             if (context.user) {
                 //add product needs to be pushed to the sell
@@ -162,6 +162,7 @@ const resolvers = {
                     { $pull: { ProductInfo: productId } },
                     { new: true }
                 )
+                return updatedProduct;
             }
         },
     }
