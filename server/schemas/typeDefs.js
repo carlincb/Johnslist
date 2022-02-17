@@ -69,6 +69,7 @@ type Product {
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     addProduct(productData: ProductInfo): Product
+    deleteProduct(productData: ProductInfo): Product
   }
 `;
 
