@@ -44,6 +44,16 @@ header {
   background-color: var(--transparent);
 }
 
+.dropdown-menu {
+  background-color: white;
+  text-align: center;
+}
+
+.dropdown-item {
+  color: black;
+  text-decoration: none;
+}
+
 /* Mobile responsive */
 
 /******** Classes for layout and grid use ********/

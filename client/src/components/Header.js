@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
+import $ from 'jquery';
 
 function Header(props) {
     var importedCategories = [{href: 'fake-category', text: 'Fake Category'}];
@@ -8,6 +9,11 @@ function Header(props) {
 
     //Toggles between light and dark themes
     const [ siteTheme, setSiteTheme ] = useState('./css/light.css');
+
+    function dropdownMenu () {
+        $(this).siblings('.dropdown-menu').slideToggle();
+    }
+
     //array the stores objects that are used to render the dropdown menus
     const dropdownMenus = [
         {
@@ -35,8 +41,8 @@ function Header(props) {
                 {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
                 {dropdownMenus.map(menu => (
                     <span class="dropdown-block">
-                        <button className="link-dropdown" ariaLabel={menu.ariaLabel}>{menu.title}<i></i></button>
-                        <div className="link-section dropdown-menu flex column">
+                        <button className="invis link-dropdown" ariaLabel={menu.ariaLabel} onClick={dropdownMenu}>{menu.title}<i></i></button>
+                        <div className="link-section flex column dropdown-menu">
                         {menu.linkInfo.map(newLink => (
                             <a href={newLink.href} className="dropdown-item">{newLink.text}</a>
                         ))}
@@ -52,10 +58,6 @@ function Header(props) {
             <input type="checkbox" ariaLabel="Theme toggle button" id="them-toggle" 
             onChange={() => siteTheme === './css/light.css' ? 
             setSiteTheme('./css/dark.css') : setSiteTheme('./css/light.css')}/>
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"
-            integrity="sha384-3ziFidFTgxJXHMDttyPJKDuTlmxJlwbSkojudK/CkRqKDOmeSbN6KLrGdrBQnT2n" crossorigin="anonymous"></script>
         </header>
     )
 }
