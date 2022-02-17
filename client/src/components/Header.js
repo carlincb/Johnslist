@@ -7,7 +7,7 @@ function Header(props) {
     const { data } = useQuery(QUERY_CATEGORIES); 
     const categoryData = data?.me || [];
 
-    //TODO: Add a loop that appends category data to the imported categories array when the site is more complete.
+    //loop that appends category data to the imported categories array.
     categoryData.map(i => 
         importedCategories.push({href: i.categoryName.toLowerCase().replace(/ /g, '-'), text: i.categoryName}));
 
