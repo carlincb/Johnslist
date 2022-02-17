@@ -40,11 +40,11 @@ function Header(props) {
             <nav id="sale-nav" className="navbar">
                 {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
                 {dropdownMenus.map(menu => (
-                    <span class="dropdown-block">
-                        <button className="invis link-dropdown" ariaLabel={menu.ariaLabel} onClick={dropdownMenu}>{menu.title}<i></i></button>
+                    <span className="dropdown-block">
+                        <button className="invis link-dropdown" aria-label={menu.ariaLabel} onClick={dropdownMenu}>{menu.title}<i></i></button>
                         <div className="link-section flex column dropdown-menu">
                         {menu.linkInfo.map(newLink => (
-                            <a href={newLink.href} className="dropdown-item">{newLink.text}</a>
+                            <a href={newLink.href} className="dropdown-item" key={newLink.href}>{newLink.text}</a>
                         ))}
                         </div>
                     </span>
@@ -55,7 +55,7 @@ function Header(props) {
                 <a href="login" id="login-link">Login</a>
             </nav>
             {/* Checkbox for toggling between light and dark themes */}
-            <input type="checkbox" ariaLabel="Theme toggle button" id="them-toggle" 
+            <input type="checkbox" aria-label="Theme toggle button" id="them-toggle" 
             onChange={() => siteTheme === './css/light.css' ? 
             setSiteTheme('./css/dark.css') : setSiteTheme('./css/light.css')}/>
         </header>
