@@ -138,10 +138,10 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
-        addProduct: async (parent, args , context) => {
+        addProduct: async (parent, { productData } , context) => {
             if (context.user) {
                 //add product needs to be pushed to the sell
-                const product = await Product.create(args);
+                const product = await Product.create({ productData });
 
                 const updatedUser= await User.findByIdAndUpdate(
                     { _id: context.user._id },
