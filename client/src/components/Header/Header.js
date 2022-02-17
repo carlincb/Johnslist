@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_CATEGORIES } from '../utils/queries';
+import { QUERY_CATEGORIES } from '../../utils/queries';
 
 function Header(props) {
     var importedCategories = [];
@@ -48,8 +48,8 @@ function Header(props) {
                 {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
                 {dropdownMenus.map(menu => (
                     <span className="dropdown-block">
-                        <button className="invis link-dropdown" aria-label={menu.ariaLabel}>{menu.title}<i></i></button>
-                        <div className="link-section flex column dropdown-menu"  style={{display: 'none'}}>
+                        <button className="link-dropdown" aria-label={menu.ariaLabel}>{menu.title}<i></i></button>
+                        <div className="link-section flex column dropdown-menu">
                         {menu.linkInfo.map(newLink => (
                             <a href={newLink.href} className="dropdown-item" key={newLink.href}>{newLink.text}</a>
                         ))}

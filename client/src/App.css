@@ -47,6 +47,8 @@ header {
 .dropdown-menu {
   background-color: white;
   text-align: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .dropdown-item {
@@ -83,6 +85,11 @@ header {
 }
 
 /******** unique id styles ********/
+
+#login-info-nav {
+  margin-left: auto;
+  margin-right: 1vw;
+}
 
 /******** Default React styles that can be removed ********/
 
