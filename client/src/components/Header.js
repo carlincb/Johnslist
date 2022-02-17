@@ -10,10 +10,6 @@ function Header(props) {
     //Toggles between light and dark themes
     const [ siteTheme, setSiteTheme ] = useState('./css/light.css');
 
-    function dropdownMenu () {
-        $(this).siblings('.dropdown-menu').slideToggle();
-    }
-
     //array the stores objects that are used to render the dropdown menus
     const dropdownMenus = [
         {
@@ -31,7 +27,13 @@ function Header(props) {
             linkInfo: [...importedCategories],
             ariaLabel: "Open category dropdown"
         }
-    ]
+    ];
+
+    function handleDropdownClick() {
+        $('.link-dropdown').click(function() {
+            $(this).siblings('.dropdown-menu').slideToggle();
+        });
+    }
 
     return (
         <header>
@@ -41,7 +43,7 @@ function Header(props) {
                 {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
                 {dropdownMenus.map(menu => (
                     <span className="dropdown-block">
-                        <button className="invis link-dropdown" aria-label={menu.ariaLabel} onClick={dropdownMenu}>{menu.title}<i></i></button>
+                        <button className="invis link-dropdown" aria-label={menu.ariaLabel} onClick={handleDropdownClick}>{menu.title}<i></i></button>
                         <div className="link-section flex column dropdown-menu">
                         {menu.linkInfo.map(newLink => (
                             <a href={newLink.href} className="dropdown-item" key={newLink.href}>{newLink.text}</a>
