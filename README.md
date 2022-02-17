@@ -114,7 +114,7 @@ Please see below for examples of this application's usage:
 
     MIT License
 
-    Copyright (c) 2022 COLLEEN FIMISTER
+    Copyright (c) 2022 COLLEEN FIMISTER, JOHN GALLAGHER, JACK MCNARY, ZACHARY ELLIOTT, MATT THURBER, ZAYMON GONZALEZ
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
