@@ -68,6 +68,8 @@ type Product {
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addProduct(): Product
+    addProduct(productData: ProductInfo): Product
   }
-`
+`;
+
+module.exports = typeDefs;

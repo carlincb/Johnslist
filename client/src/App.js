@@ -7,7 +7,11 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Header from './components/Header';
+import Header from './components/Header/Header';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import NoMatch from './pages/NoMatch';
 import './App.css';
 
 const httpLink = createHttpLink({
@@ -33,10 +37,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+      <Header />
         <Switch>
-          <Route>
-          <Header />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route component={NoMatch} />
         </Switch>
       </Router>
     </ApolloProvider>
