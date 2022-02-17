@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import $ from 'jquery';
+import { QUERY_CATEGORIES } from '../utils/queries';
 
 function Header(props) {
-    var importedCategories = [{href: 'fake-category', text: 'Fake Category'}];
+    var importedCategories = [];
+    const { data } = useQuery(QUERY_CATEGORIES); 
+    const categoryData = data?.me || [];
 
-    //TODO: Add a loop that appends category data to the imported categories array when the site is more complete. 
+    //TODO: Add a loop that appends category data to the imported categories array when the site is more complete.
+    categoryData.map(i => 
+        importedCategories.push({href: i.categoryName.toLowerCase().replace(/ /g, '-'), text: i.categoryName}));
+
 
     //Toggles between light and dark themes
     const [ siteTheme, setSiteTheme ] = useState('./css/light.css');
@@ -29,11 +34,11 @@ function Header(props) {
         }
     ];
 
-    function handleDropdownClick() {
-        $('.link-dropdown').click(function() {
+   /* function handleDropdownClick() {
+        $('.link-dropdown').on('click', function() {
             $(this).siblings('.dropdown-menu').slideToggle();
         });
-    }
+    } */
 
     return (
         <header>
@@ -43,8 +48,8 @@ function Header(props) {
                 {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
                 {dropdownMenus.map(menu => (
                     <span className="dropdown-block">
-                        <button className="invis link-dropdown" aria-label={menu.ariaLabel} onClick={handleDropdownClick}>{menu.title}<i></i></button>
-                        <div className="link-section flex column dropdown-menu">
+                        <button className="invis link-dropdown" aria-label={menu.ariaLabel}>{menu.title}<i></i></button>
+                        <div className="link-section flex column dropdown-menu"  style={{display: 'none'}}>
                         {menu.linkInfo.map(newLink => (
                             <a href={newLink.href} className="dropdown-item" key={newLink.href}>{newLink.text}</a>
                         ))}
