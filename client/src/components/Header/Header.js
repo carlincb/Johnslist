@@ -14,6 +14,8 @@ function Header(props) {
 
     //Toggles between light and dark themes
     const [ siteTheme, setSiteTheme ] = useState('./css/light.css');
+    //var savedTheme = localStorage.getItem('savedTheme') || './css/light.css';
+    //setSiteTheme(savedTheme);
 
     //array the stores objects that are used to render the dropdown menus
     const dropdownMenus = [
@@ -57,14 +59,21 @@ function Header(props) {
                     </span>
                 ))}
             </nav>
-            <nav id="login-info-nav">
+            <nav id="login-info-nav" class="flex">
                 <a href="about">About Us</a>
-                <a href="login" id="login-link">Login</a>
-            </nav>
+                <a href="login" id="login-link" class="link-btn">Login</a>
             {/* Checkbox for toggling between light and dark themes */}
             <input type="checkbox" aria-label="Theme toggle button" id="them-toggle" 
-            onChange={() => siteTheme === './css/light.css' ? 
-            setSiteTheme('./css/dark.css') : setSiteTheme('./css/light.css')}/>
+            onChange={() => {
+                if(siteTheme === './css/light.css') {
+                    setSiteTheme('./css/dark.css');
+                    localStorage.setItem('savedTheme', './css/dark.css');
+                } 
+                else {
+                    setSiteTheme('./css/light.css');
+                    localStorage.setItem('savedTheme', './css/light.css');
+                    }}}/>
+            </nav>
         </header>
     )
 }
