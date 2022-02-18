@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useMutation } from '@apollo/client';
 import { ADD_PRODUCT } from '../utils/mutations';
 
-import ImageUploads from "../components/ImageUploads";
+// import ImageUploads from "../components/ImageUploads";
 
-const addProductPage = () => {
-    const [productName, setProductName] = React.useState("");
-    const [username, setUsername] = React.useState("");
+const AddProductPage = () => {
+    const [productName, setProductName] = useState('');
+    const [username, setUsername] = useState('');
     // const [image, setImage] = React.useState("");
-    const [description, setDescription] = React.useState("");
-    const [price, setPrice] = React.useState("");
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState('');
+    const [formState, setFormState] = useState({
+        name: '',
+        username: '',
+        description: '',
+        price: ''})
     // const [category, setCategory] = React.useState("");
     // const categories = [
     // "Household",
@@ -20,15 +25,37 @@ const addProductPage = () => {
     //     "Miscellaneous",
     // ];
     const [addProduct, { error }] = useMutation(ADD_PRODUCT);
+    const handleChange = event => {
+        const {name, value} = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        })
+        console.log(formState)
+    }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
+        console.log(addProduct({
+            variables: { 
+                username: formState.username,
+                name: formState.name,
+                description: formState.description,
+                price: parseFloat(formState.price),
+            },
+        }))
         try {
 
             const { data } = await addProduct({
-                variables: { username, productName, description, price },
+                variables: { 
+                    username: formState.username,
+                    name: formState.name,
+                    description: formState.description,
+                    price: parseFloat(formState.price),
+                },
             });
+            console.log(data);
         } catch (err) {
             console.error(err);
         }
@@ -53,11 +80,11 @@ const addProductPage = () => {
             ))} */}
             {/* </label> * /} */}
             < label > Your Username:
-                <input name="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                <input name="username" type="text" onChange={handleChange} required />
             </label >
             <label>
                 Product Name:
-                <input name="product" type="text" value={productName} onChange={(e) => setProductName(e.target.value)} required
+                <input name="name" type="text" onChange={handleChange} required
                 />
             </label>
             <label>
@@ -70,18 +97,19 @@ const addProductPage = () => {
                     onChange={e => setImage(e.target.value)}
                     required
                 /> */}
-                <ImageUploads />
+                {/* <ImageUploads /> */}
             </label>
             <label>
                 Description:
-                <input name="description" type="text" value={description} onChange={(e) => setDescription(e.target.value)} required />
+                <input name="description" type="text" onChange={handleChange} required />
             </label>
             <label>
-                <input name="price" type="text" value={price} onChange={(e) => setPrice(e.target.value)} required />
+                Price:
+                <input name="price" type="text" onChange={handleChange} required />
             </label>
             <button>Submit</button>
         </form >
     );
 }
 
-export default addProductPage;
+export default AddProductPage;

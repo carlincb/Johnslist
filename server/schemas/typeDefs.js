@@ -8,7 +8,7 @@ type User {
     username: String!
     email: String!
     password: String!
-    #isSeller: Boolean!
+    isSeller: Boolean
     wishlist: [Product]
     listedItems: [Product]
     orders: [Order]
@@ -20,13 +20,12 @@ type Category {
   }
 
 type Product {
-    _id: ID
+    productId: ID!
     name: String!
-    quantity: Int
     description: String
     image: String
     price: Float!
-    category: Category!
+    username: String!
   }
 
   type Order{
@@ -41,13 +40,12 @@ type Product {
   }
 
   input ProductInfo {
-    productId: ID
-    productName: String!
+    productId: String!
+    name: String!
     description: String
     price: Float!
     image: String
     username: String!
-    title: String! 
   }
 
   type Checkout{
@@ -64,15 +62,12 @@ type Product {
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!,
-    password: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, username: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     addProduct(productData: ProductInfo): Product
-    deleteProduct(productData: ProductInfo): Product
-
-
+    deleteProduct(_id: ID!): Product
   }
 `;
 
