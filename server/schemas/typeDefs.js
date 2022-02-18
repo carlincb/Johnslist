@@ -8,7 +8,7 @@ type User {
     username: String!
     email: String!
     password: String!
-    isSeller: Boolean!
+    #isSeller: Boolean!
     wishlist: [Product]
     listedItems: [Product]
     orders: [Order]
