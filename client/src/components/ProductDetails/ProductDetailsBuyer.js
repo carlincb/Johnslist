@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 
-function ProductDetails(props) {
+function ProductDetailsBuyer(props) {
     return (
         <main>
             <img src={product.image} />
@@ -12,7 +12,7 @@ function ProductDetails(props) {
                     <p>{product.description}</p>
                 </div>
                 <a id="add-link" class=""
-                href={user.isSeller ? '/whatever-seller-link' : '/whatever-buyer-link'} >
+                    href={user.isSeller ? '/whatever-seller-link' : '/whatever-buyer-link'} >
                     {user.isSeller ? 'Add to Gallery' : 'Add to Cart'}
                 </a>
             </div>
@@ -20,4 +20,4 @@ function ProductDetails(props) {
     );
 }
 
-export default ProductDetails;
+export default ProductDetailsBuyer;

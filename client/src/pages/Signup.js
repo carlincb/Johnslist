@@ -23,13 +23,13 @@ function Signup(props) {
         Auth.login(token);
     };
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
-    };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
     return (
       <div className="">
@@ -58,7 +58,7 @@ function Signup(props) {
             />
           </div>
           <div className="">
-            <label htmlFor="firstName">First Name:</label>
+            <label htmlFor="firstName">Username:</label>
             <input
               placeholder="Username"
               name="username"

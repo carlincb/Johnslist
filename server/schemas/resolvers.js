@@ -163,6 +163,7 @@ const resolvers = {
                     { $pull: { listedItems: { productId: productId }}},
                     { new: true }
                 )
+                return updatedProduct;
             }
             return;
         },
