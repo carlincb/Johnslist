@@ -88,6 +88,7 @@ const resolvers = {
     },
     Mutation: {
         addUser: async (parent, args) => {
+            console.log(args);
             const user = await User.create(args);
             const token = signToken(user);
 
@@ -140,7 +141,7 @@ const resolvers = {
 
 
         addProduct: async (parent, { productData } , context) => {
-
+            console.log(context.user, productData)
             if (context.user) {
                 //add product needs to be pushed to the sell
                 const product = await Product.create({ productData });
@@ -159,10 +160,11 @@ const resolvers = {
             if (context.user) {
                 const updatedProduct = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { ProductInfo: productId } },
+                    { $pull: { listedItems: { productId: productId }}},
                     { new: true }
                 )
             }
+            return;
         },
     }
 };
