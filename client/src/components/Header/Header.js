@@ -13,9 +13,7 @@ function Header(props) {
 
 
     //Toggles between light and dark themes
-    const [ siteTheme, setSiteTheme ] = useState('./css/light.css');
-    //var savedTheme = localStorage.getItem('savedTheme') || './css/light.css';
-    //setSiteTheme(savedTheme);
+    const [ siteTheme, setSiteTheme ] = useState(localStorage.getItem('savedTheme') || './css/light.css');
 
     //array the stores objects that are used to render the dropdown menus
     const dropdownMenus = [
@@ -35,12 +33,6 @@ function Header(props) {
             ariaLabel: "Open category dropdown"
         }
     ];
-
-   /* function handleDropdownClick() {
-        $('.link-dropdown').on('click', function() {
-            $(this).siblings('.dropdown-menu').slideToggle();
-        });
-    } */
 
     return (
         <header>
