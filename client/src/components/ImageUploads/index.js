@@ -1,25 +1,30 @@
 import React from "react";
 import { uploadWidget } from "../../utils/cloudinaryService";
 
-function ImageUploads() {
+function ImageUploads({ setImage, formState, setFormState, image }) {
   const beginUpload = (tag) => {
     const uploadOptions = {
-      cloudName: "",
+      cloudName: "carlincb",
       tags: [tag],
-      uploadPreset: "",
+      uploadPreset: "unsigned",
       sources: ["local"],
     };
-    openUploadWidget(uploadOptions, (error, photos) => {
+    uploadWidget(uploadOptions, (error, photos) => {
       if (!error) {
         if (photos.event === "success") {
-          console.log(photos.info.secure_url);
+          setImage(photos.info.secure_url);
+          setFormState({ ...formState, image: photos.info.secure_url });
         }
       } else {
         console.log(error);
       }
     });
   };
-  return <button onClick={() => beginUpload("testing")}>Upload Image</button>;
+  return (
+    <button name="image" value={image} onClick={() => beginUpload("testing")}>
+      Upload Image
+    </button>
+  );
 }
 
 export default ImageUploads;
