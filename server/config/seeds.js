@@ -14,9 +14,9 @@ db.once('open', async () => {
 
     console.log('The categories have been seeded.');
 
-    // /* remove the front comment to get rid of this seed data if you forked this project
+    // /* remove the front comment '//' to get rid of this seed data if you forked this project
 
-    // /* remove the front comment to get rid of this seed data if you forked this project
+    // /* remove the front comment '//' to get rid of this seed data if you forked this project
 
     process.exit();
 });
