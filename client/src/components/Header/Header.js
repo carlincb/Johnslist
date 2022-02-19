@@ -64,7 +64,7 @@ function Header(props) {
                 else {
                     setSiteTheme('./css/light.css');
                     localStorage.setItem('savedTheme', './css/light.css');
-                    }}}/>
+                    }}} checked={siteTheme === './css/dark.css' ? 'checked' : ''}/>
             </nav>
         </header>
     )
