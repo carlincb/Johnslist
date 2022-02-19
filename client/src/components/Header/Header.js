@@ -55,7 +55,7 @@ function Header(props) {
                 <a href="about">About Us</a>
                 <a href="login" id="login-link" className="link-btn">Login</a>
             {/* Checkbox for toggling between light and dark themes */}
-            <input type="checkbox" aria-label="Theme toggle button" id="them-toggle" 
+            <input type="checkbox" aria-label="Theme toggle button" id="theme-toggle" 
             onChange={() => {
                 if(siteTheme === './css/light.css') {
                     setSiteTheme('./css/dark.css');
