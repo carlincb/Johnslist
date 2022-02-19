@@ -11,7 +11,7 @@ const Home = () => {
             <p>~Leonhard Culmans 1741</p>
         </div>
         <div>
-            <Link to="/signup">Start Today</Link>
+            <Link to="/signup" className="link-btn">Start Today</Link>
         </div>
     </div>
   );
