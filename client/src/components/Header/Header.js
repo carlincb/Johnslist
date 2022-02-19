@@ -19,7 +19,7 @@ function Header(props) {
     const dropdownMenus = [
         {
             title: "Sell",
-            linkInfo: [{href: "selling-info", text: "Information"}, {href: "marketplace", text: "Marketplace"}],
+            linkInfo: [{href: "selling-info", text: "Information"}, {href: "add-product", text: "Add Product"}],
             ariaLabel: "Open seller dropdown"
         },
         {
