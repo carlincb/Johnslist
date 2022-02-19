@@ -8,17 +8,26 @@ const Home = () => {
         <div className="banner">
           <div className="header">
             <h1 className="title">
-              The NEW commerce
               <br />
-              platform for
               <br />
-              broken items
+              The NEW
+              <br />
+              commerce
+              <br />
+              platform
+              <br />
+              for broken
+              <br />
+              items
             </h1>
             <p className="subtitle">
               "One man's trash is another man's treasure."
             </p>
             <p className="subtitle">~Leonhard Culmans 1741</p>
-            <Link to="/signup">Start Today</Link>
+            <br />
+            <button className="btn-2">
+              <Link to="/signup">Start Today</Link>
+            </button>
           </div>
           <div className="profile"></div>
         </div>

@@ -17,14 +17,28 @@ html {
 }
 body {
   background-color: var(--ks-highlight);
-}
-.btn {
-  border-radius: 2rem;
-}
-.btn:hover {
-  opacity: 0.5;
+  font-size: 1.5rem;
 }
 
+a {
+  text-decoration: none;
+  color: var(--ks-highlight);
+}
+a:visited {
+  color: var(--ks-highlight);
+}
+.about-us-link {
+  color: #333333;
+}
+.about-us-link:visited {
+  color: #333333;
+}
+button:hover {
+  opacity: 0.5;
+}
+.link-btn:hover {
+  opacity: 0.5;
+}
 h1 {
   font-family: "Work Sans", sans-serif;
   font-size: 7.2rem;
@@ -59,7 +73,7 @@ h1 {
 .subtitle {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.3rem;
   margin-bottom: 2rem;
@@ -67,6 +81,7 @@ h1 {
 
 .title {
   margin-bottom: 8rem;
+  color: #c29429;
 }
 
 .profile {
@@ -88,7 +103,18 @@ h1 {
 }
 .link-btn {
   background-color: var(--ks-background);
-  color: white;
+  font-size: 1.5rem;
+  border-radius: 5rem;
+}
+.btn-2 {
+  background-color: var(--ks-background);
+  font-size: 1.5rem;
+  border-radius: 5rem;
+  border: 0rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .profile:after {
   position: absolute;
@@ -101,8 +127,8 @@ h1 {
   .banner {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "profile"
-      "header";
+      "header"
+      "profile";
     padding-top: 1rem;
   }
   .profile {
