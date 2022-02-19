@@ -9,3 +9,8 @@ body {
     background-color: var(--ks-background);
     color: white;
 }
+
+.link-btn {
+    background-color: var(--ks-primary);
+    color: black;
+}
