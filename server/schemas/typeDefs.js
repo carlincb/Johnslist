@@ -16,7 +16,7 @@ type User {
 
 type Category {
     _id: ID
-    name: String!
+    categoryName: String!
   }
 
 type Product {
