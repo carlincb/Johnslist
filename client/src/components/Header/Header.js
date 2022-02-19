@@ -5,12 +5,11 @@ import { QUERY_CATEGORIES } from '../../utils/queries';
 function Header(props) {
     var importedCategories = [];
     const { data } = useQuery(QUERY_CATEGORIES);
-    const categoryData = data?.me || [];
+    const categoryData = data?.categories || [];
 
     //loop that appends category data to the imported categories array.
     categoryData.map(i => 
         importedCategories.push({href: i.categoryName.toLowerCase().replace(/ /g, '-'), text: i.categoryName}));
-
 
     //Toggles between light and dark themes
     const [ siteTheme, setSiteTheme ] = useState(localStorage.getItem('savedTheme') || './css/dark.css');
