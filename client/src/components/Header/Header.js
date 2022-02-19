@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 
 function Header(props) {
+    //Grabs the categories
     var importedCategories = [];
     const { data } = useQuery(QUERY_CATEGORIES);
     const categoryData = data?.categories || [];
