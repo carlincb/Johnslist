@@ -20,13 +20,18 @@
   },
   "homepage": "https://github.com/carlincb/johnslist#readme",
   "dependencies": {
+    "@babel/preset-react": "^7.16.7",
     "cloudinary-core": "^2.12.3",
     "concurrently": "^7.0.0",
+    "dotenv": "^16.0.0",
     "graphql": "^15.5.0",
     "stripe": "^8.203.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "webpack": "^4.42.0",
+    "webpack-pwa-manifest": "^4.3.0",
+    "workbox-webpack-plugin": "^6.4.2"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^2.0.2"
+    "babel-plugin-styled-components": "^2.0.3"
   }
 }
