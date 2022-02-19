@@ -51,7 +51,7 @@ function Header(props) {
                     </span>
                 ))}
             </nav>
-            <nav id="login-info-nav" class="flex">
+            <nav id="login-info-nav" class="flex navbar">
                 <a href="about">About Us</a>
                 <a href="login" id="login-link" class="link-btn">Login</a>
             {/* Checkbox for toggling between light and dark themes */}
