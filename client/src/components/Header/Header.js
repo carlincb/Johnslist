@@ -43,7 +43,7 @@ function Header(props) {
                 {dropdownMenus.map(menu => (
                     <span className="dropdown-block">
                         <button className="link-dropdown" aria-label={menu.ariaLabel}>{menu.title}<i></i></button>
-                        <div className="link-section flex column dropdown-menu">
+                        <div className="link-section dropdown-menu flex column">
                         {menu.linkInfo.map(newLink => (
                             <a href={newLink.href} className="dropdown-item" key={newLink.href}>{newLink.text}</a>
                         ))}
