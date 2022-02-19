@@ -18,6 +18,7 @@ header {
   display: flex;
   background-color: var(--transparent);
   margin-bottom: 0vh;
+  align-content: center;
 }
 
 /******** Classes for styling specific items ********/
@@ -64,6 +65,13 @@ header {
 .dropdown-item {
   color: black;
   text-decoration: none;
+}
+
+.link-btn {
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+  padding: 3% 10%;
 }
 
 /* Mobile responsive */
