@@ -17,7 +17,6 @@ html {
 }
 body {
   background-color: var(--ks-highlight);
-  font-size: 1.5rem;
 }
 
 a {
@@ -70,41 +69,13 @@ h1 {
   padding: 1rem;
 }
 
-.subtitle {
-  font-family: "Open Sans", sans-serif;
-  text-transform: uppercase;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.3rem;
-  margin-bottom: 2rem;
-}
-
 .title {
   margin-bottom: 8rem;
   color: var(--ks-primary);
 }
 
-.profile {
-  position: relative;
-  grid-area: profile;
-  align-self: center;
-  justify-self: center;
-  width: 60rem;
-  height: 60rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.profile:after {
-  position: absolute;
-  bottom: -2.6rem;
-  width: 32rem;
-  height: 32rem;
-}
 .link-btn {
   background-color: var(--ks-background);
-  font-size: 1.5rem;
-  border-radius: 5rem;
   color: white !important;
 }
 .btn-2 {
@@ -125,35 +96,7 @@ h1 {
   height: 52rem;
 }
 @media only screen and (max-width: 1256px) {
-  .banner {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "profile";
-    padding-top: 1rem;
-  }
   .profile {
-    grid-area: profile;
-    align-self: center;
-    justify-self: center;
     background-image: url(../images/arthomelight.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 60rem;
-    height: 40rem;
-  }
-  .profile:after {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .header {
-    transform: scale(0.85);
-  }
-
-  .profile {
-    display: none;
   }
 }
