@@ -46,60 +46,40 @@ function Header(props) {
     },
   ];
 
-  return (
-    <header>
-      <link rel="stylesheet" href={siteTheme} />
-      <a href="/" id="home-link">
-        <img src="./images/kintsugi_logo.png" alt="Go to Kintsugi home page" />
-      </a>
-      <nav id="sale-nav" className="navbar">
-        {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
-        {dropdownMenus.map((menu) => (
-          <span className="dropdown-block">
-            <button className="link-dropdown" aria-label={menu.ariaLabel}>
-              {menu.title}
-              <i></i>
-            </button>
-            <div className="link-section flex column dropdown-menu">
-              {menu.linkInfo.map((newLink) => (
-                <a
-                  href={newLink.href}
-                  className="dropdown-item"
-                  key={newLink.href}
-                >
-                  {newLink.text}
-                </a>
-              ))}
-            </div>
-          </span>
-        ))}
-      </nav>
-      <nav id="login-info-nav" className="flex navbar">
-        <a href="about" className="about-us-link">
-          About Us
-        </a>
-        <a href="login" id="login-link" className="link-btn">
-          Login
-        </a>
-        {/* Checkbox for toggling between light and dark themes */}
-        <input
-          type="checkbox"
-          aria-label="Theme toggle button"
-          id="them-toggle"
-          onChange={() => {
-            if (siteTheme === "./css/light.css") {
-              setSiteTheme("./css/dark.css");
-              localStorage.setItem("savedTheme", "./css/dark.css");
-            } else {
-              setSiteTheme("./css/light.css");
-              localStorage.setItem("savedTheme", "./css/light.css");
-            }
-          }}
-          checked={siteTheme === "./css/light.css" ? "checked" : ""}
-        />
-      </nav>
-    </header>
-  );
+    return (
+        <header>
+            <link rel="stylesheet" href={siteTheme}/>
+            <a href="/" id="home-link"><img src="./images/kintsugi_logo.png" alt="Go to Kintsugi home page"/></a>
+            <nav id="sale-nav" className="navbar">
+                {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
+                {dropdownMenus.map(menu => (
+                    <span className="dropdown-block">
+                        <button className="link-dropdown" aria-label={menu.ariaLabel}>{menu.title}<i></i></button>
+                        <div className="link-section dropdown-menu flex column">
+                        {menu.linkInfo.map(newLink => (
+                            <a href={newLink.href} className="dropdown-item" key={newLink.href}>{newLink.text}</a>
+                        ))}
+                        </div>
+                    </span>
+                ))}
+            </nav>
+            <nav id="login-info-nav" className="flex navbar">
+                <a href="about">About Us</a>
+                <a href="login" id="login-link" className="link-btn">Login</a>
+            {/* Checkbox for toggling between light and dark themes */}
+            <input type="checkbox" aria-label="Theme toggle button" id="theme-toggle" 
+            onChange={() => {
+                if(siteTheme === './css/light.css') {
+                    setSiteTheme('./css/dark.css');
+                    localStorage.setItem('savedTheme', './css/dark.css');
+                } 
+                else {
+                    setSiteTheme('./css/light.css');
+                    localStorage.setItem('savedTheme', './css/light.css');
+                    }}} checked={siteTheme === './css/light.css' ? 'checked' : ''}/>
+            </nav>
+        </header>
+    )
 }
 
 export default Header;

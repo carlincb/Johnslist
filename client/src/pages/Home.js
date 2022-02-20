@@ -26,7 +26,7 @@ const Home = () => {
             <p className="subtitle">~Leonhard Culmans 1741</p>
             <br />
             <button className="btn-2">
-              <Link to="/signup">Start Today</Link>
+              <Link to="/signup"  className="link-btn">Start Today</Link>
             </button>
           </div>
           <div className="profile"></div>
