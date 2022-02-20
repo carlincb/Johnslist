@@ -1,15 +1,158 @@
 :root {
-    --ks-primary: #fec234;
-    --ks-secondary: #333333;
-    --ks-highlight: #eeeeee;
-    --ks-background: #37435b;
+  --ks-primary: #fec234;
+  --ks-secondary: #333333;
+  --ks-highlight: #eeeeee;
+  --ks-background: #37435b;
 }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700|Work+Sans:300&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+}
 body {
-    background-color: var(--ks-highlight);
+  background-color: var(--ks-highlight);
+  font-size: 1.5rem;
 }
 
+a {
+  text-decoration: none;
+  color: var(--ks-highlight);
+}
+a:visited {
+  color: var(--ks-highlight);
+}
+.about-us-link {
+  color: #333333;
+}
+.about-us-link:visited {
+  color: #333333;
+}
+button:hover {
+  opacity: 0.5;
+}
+.link-btn:hover {
+  opacity: 0.5;
+}
+h1 {
+  font-family: "Work Sans", sans-serif;
+  font-size: 7.2rem;
+  font-weight: 300;
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "banner";
+}
+
+.banner {
+  grid-area: banner;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 1fr 60rem 60rem 1fr;
+  grid-gap: 2rem;
+  grid-template-areas: ". header profile .";
+}
+
+.header {
+  grid-area: header;
+  align-self: center;
+  justify-self: center;
+  padding: 1rem;
+}
+
+.subtitle {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  margin-bottom: 8rem;
+  color: #c29429;
+}
+
+.profile {
+  position: relative;
+  grid-area: profile;
+  align-self: center;
+  justify-self: center;
+  width: 60rem;
+  height: 60rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.profile:after {
+  position: absolute;
+  bottom: -2.6rem;
+  width: 32rem;
+  height: 32rem;
+}
 .link-btn {
-    background-color: var(--ks-background);
-    color: white;
+  background-color: var(--ks-background);
+  font-size: 1.5rem;
+  border-radius: 5rem;
+}
+.btn-2 {
+  background-color: var(--ks-background);
+  font-size: 1.5rem;
+  border-radius: 5rem;
+  border: 0rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.profile:after {
+  position: absolute;
+  content: url(../images/arthomelight.png);
+  bottom: -2.6rem;
+  width: 52rem;
+  height: 52rem;
+}
+@media only screen and (max-width: 1256px) {
+  .banner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "profile";
+    padding-top: 1rem;
+  }
+  .profile {
+    grid-area: profile;
+    align-self: center;
+    justify-self: center;
+    background-image: url(../images/arthomelight.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 60rem;
+    height: 40rem;
+  }
+  .profile:after {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    transform: scale(0.85);
+  }
+
+  .profile {
+    display: none;
+  }
 }

@@ -1,38 +1,50 @@
-import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { QUERY_CATEGORIES } from '../../utils/queries';
+import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_CATEGORIES } from "../../utils/queries";
 
 function Header(props) {
-    //Grabs the categories
-    var importedCategories = [];
-    const { data } = useQuery(QUERY_CATEGORIES);
-    const categoryData = data?.categories || [];
+  //Grabs the categories
+  var importedCategories = [];
+  const { data } = useQuery(QUERY_CATEGORIES);
+  const categoryData = data?.categories || [];
 
-    //loop that appends category data to the imported categories array.
-    categoryData.map(i => 
-        importedCategories.push({href: i.categoryName.toLowerCase().replace(/ /g, '-'), text: i.categoryName}));
+  //loop that appends category data to the imported categories array.
+  categoryData.map((i) =>
+    importedCategories.push({
+      href: i.categoryName.toLowerCase().replace(/ /g, "-"),
+      text: i.categoryName,
+    })
+  );
 
-    //Toggles between light and dark themes
-    const [ siteTheme, setSiteTheme ] = useState(localStorage.getItem('savedTheme') || './css/dark.css');
+  //Toggles between light and dark themes
+  const [siteTheme, setSiteTheme] = useState(
+    localStorage.getItem("savedTheme") || "./css/dark.css"
+  );
 
-    //array the stores objects that are used to render the dropdown menus
-    const dropdownMenus = [
-        {
-            title: "Sell",
-            linkInfo: [{href: "selling-info", text: "Information"}, {href: "add-product", text: "Add Product"}],
-            ariaLabel: "Open seller dropdown"
-        },
-        {
-            title: "Buy",
-            linkInfo: [{href: "buying-info", text: "Information"}, {href: "marketplace", text: "Marketplace"}],
-            ariaLabel: "Open buyer dropdown"
-        },
-        {
-            title: "Categories",
-            linkInfo: [...importedCategories],
-            ariaLabel: "Open category dropdown"
-        }
-    ];
+  //array the stores objects that are used to render the dropdown menus
+  const dropdownMenus = [
+    {
+      title: "Sell",
+      linkInfo: [
+        { href: "selling-info", text: "Information" },
+        { href: "add-product", text: "Add Product" },
+      ],
+      ariaLabel: "Open seller dropdown",
+    },
+    {
+      title: "Buy",
+      linkInfo: [
+        { href: "buying-info", text: "Information" },
+        { href: "marketplace", text: "Marketplace" },
+      ],
+      ariaLabel: "Open buyer dropdown",
+    },
+    {
+      title: "Categories",
+      linkInfo: [...importedCategories],
+      ariaLabel: "Open category dropdown",
+    },
+  ];
 
     return (
         <header>
