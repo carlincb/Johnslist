@@ -108,6 +108,10 @@ Please see below for examples of this application's usage:
 - https://www.youtube.com/watch?v=-FZzPHSLauc&ab_channel=PedroTech
 - https://www.figma.com/
 - https://www.designify.com/
+- https://www.youtube.com/watch?v=hQAHSlTtcmY
+- https://startbootstrap.com/
+- https://www.youtube.com/watch?v=W8OVkAVfAvE
+- https://www.designify.com/
 - https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 - https://unsplash.com/
 
@@ -139,7 +143,7 @@ Please see below for examples of this application's usage:
 
 ## Contributing
 
-No contributions needed at this time, but please feel free to contact us at the email address below if you would like to contact us about this project.
+No contributions needed at this time, but please feel free to reach out to us at the email address below if you would like to contact us about this project.
 
 ## Links
 
