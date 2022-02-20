@@ -117,6 +117,10 @@ header {
   margin-right: 1vw;
 }
 
+#login-info-nav a {
+  color: black;
+}
+
 /******** Default React styles that can be removed ********/
 
 .App {
