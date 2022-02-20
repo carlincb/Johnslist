@@ -3,6 +3,7 @@
   --ks-secondary: #333333;
   --ks-highlight: #eeeeee;
   --ks-background: #37435b;
+  --ks-link-color: #1f1f1f;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700|Work+Sans:300&display=swap");
@@ -13,46 +14,10 @@ body {
 }
 a {
   text-decoration: none;
-  color: #1f1f1f;
+  color: var(--ks-link-color);
 }
 a:visited {
-  color: #1f1f1f;
-}
-button:hover {
-  opacity: 0.5;
-}
-.link-btn:hover {
-  opacity: 0.5;
-}
-h1 {
-  font-family: "Work Sans", sans-serif;
-  font-size: 7.2rem;
-  font-weight: 300;
-}
-
-.wrapper {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "banner";
-}
-
-.banner {
-  grid-area: banner;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: grid;
-  grid-template-columns: 1fr 60rem 60rem 1fr;
-  grid-gap: 2rem;
-  grid-template-areas: ". header profile .";
-}
-
-.header {
-  grid-area: header;
-  align-self: center;
-  justify-self: center;
-  padding: 1rem;
+  color: var(--ks-link-color);
 }
 
 .link-btn {
@@ -62,21 +27,10 @@ h1 {
 }
 .btn-2 {
   background-color: var(--ks-primary);
-  font-size: 1.5rem;
-  border-radius: 5rem;
-  border: 0rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
 }
 
 .profile:after {
-  position: absolute;
   content: url(../images/arthomedark.png);
-  bottom: -2.6rem;
-  width: 52rem;
-  height: 52rem;
 }
 
 @media only screen and (max-width: 1256px) {

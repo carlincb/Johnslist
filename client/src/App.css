@@ -8,6 +8,8 @@
   --transparent: rgba(0, 0, 0, 0);
 }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700|Work+Sans:300&display=swap");
+
 /******** Basic site styles ********/
 
 * {
@@ -31,6 +33,20 @@ header {
   align-content: center;
 }
 
+h1 {
+  font-family: "Work Sans", sans-serif;
+  font-size: 7.2rem;
+  font-weight: 300;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+.link-btn:hover {
+  opacity: 0.5;
+}
+
 /******** Classes for styling specific items ********/
 
 /* Primary */
@@ -41,6 +57,24 @@ header {
   align-content: center;
 }
 
+.banner {
+  grid-area: banner;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 1fr 60rem 60rem 1fr;
+  grid-gap: 2rem;
+  grid-template-areas: ". header profile .";
+}
+
+.header {
+  grid-area: header;
+  align-self: center;
+  justify-self: center;
+  padding: 1rem;
+}
+
 .card {
   display: flex;
   justify-content: center;
@@ -49,6 +83,13 @@ header {
   background-color: white;
   border-radius: 5px;
   padding: 0%;
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "banner";
 }
 
 .link-dropdown {
@@ -131,6 +172,16 @@ header {
   margin-bottom: 8rem;
 }
 
+.btn-2 {
+  font-size: 1.5rem;
+  border-radius: 5rem;
+  border: 0rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 /* Mobile responsive */
 
 @media only screen and (max-width: 1256px) {
@@ -165,7 +216,6 @@ header {
     display: none;
   }
 }
-
 
 /******** Classes for layout and grid use ********/
 
