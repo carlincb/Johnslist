@@ -28,10 +28,10 @@ a:visited {
   color: var(--ks-highlight);
 }
 .about-us-link {
-  color: #333333;
+  color: var(--ks-secondary);
 }
 .about-us-link:visited {
-  color: #333333;
+  color: var(--ks-secondary);
 }
 button:hover {
   opacity: 0.5;
@@ -81,7 +81,7 @@ h1 {
 
 .title {
   margin-bottom: 8rem;
-  color: #c29429;
+  color: var(--ks-primary);
 }
 
 .profile {
