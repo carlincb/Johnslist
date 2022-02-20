@@ -64,7 +64,7 @@ header {
   align-items: center;
   pointer-events: none;
   opacity: 0;
-  transform: tanslateY(-5%);
+  transform: translateY(-5%);
   transition: all .5s ease;
   position: absolute;
 }
