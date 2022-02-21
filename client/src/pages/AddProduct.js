@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../utils/mutations";
-
+import "./addproduct.css";
 import ImageUploads from "../components/ImageUploads";
 
 const AddProductPage = () => {
@@ -67,9 +67,10 @@ const AddProductPage = () => {
   };
   return (
     // select category
-    <form onSubmit={handleFormSubmit}>
-      <h1>Ready to add what could be someone's treasure?</h1>
-      {/* <label>
+    <form className="add-product-page" onSubmit={handleFormSubmit}>
+      <div className="form-addproduct-div">
+        <h1>Ready to add what could be someone's treasure?</h1>
+        {/* <label>
                 Select the category you feel this fits in:
                 <select
                     name="category"
@@ -79,50 +80,51 @@ const AddProductPage = () => {
                 />
                 <option key=""></option>
                 {/* Need to work out how we pull the categories */}
-      {/* {categories.map((category) => (
+        {/* {categories.map((category) => (
                 <option key={category}>{category}</option>
             ))} */}
-      {/* </label> * /} */}
-      <label>
-        {" "}
-        Your Username:
-        <input name="username" type="text" onChange={handleChange} required />
-      </label>
-      <label>
-        Product Name:
-        <input name="name" type="text" onChange={handleChange} required />
-      </label>
-      <label>
-        Image:
-        {/* This is where we need to add that image thing from the previous project */}
-        {/* <input
+        {/* </label> * /} */}
+        <label>
+          {" "}
+          Your Username:
+          <input name="username" type="text" onChange={handleChange} required />
+        </label>
+        <label>
+          Product Name:
+          <input name="name" type="text" onChange={handleChange} required />
+        </label>
+        <label>
+          Image:
+          {/* This is where we need to add that image thing from the previous project */}
+          {/* <input
                     name="image"
                     type="input"
                     value={image}
                     onChange={e => setImage(e.target.value)}
                     required
                 /> */}
-        <ImageUploads
-          formState={formState}
-          setFormState={setFormState}
-          setImage={setImage}
-          image={image}
-        />
-      </label>
-      <label>
-        Description:
-        <input
-          name="description"
-          type="text"
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <label>
-        Price:
-        <input name="price" type="text" onChange={handleChange} required />
-      </label>
-      <button>Submit</button>
+          <ImageUploads
+            formState={formState}
+            setFormState={setFormState}
+            setImage={setImage}
+            image={image}
+          />
+        </label>
+        <label>
+          Description:
+          <input
+            name="description"
+            type="text"
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Price:
+          <input name="price" type="text" onChange={handleChange} required />
+        </label>
+        <button>Submit</button>
+      </div>
     </form>
   );
 };
