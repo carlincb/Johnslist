@@ -83,6 +83,7 @@ button:hover {
   align-self: top;
   justify-self: center;
   padding: 2rem;
+  margin-bottom: 20vh;
 }
 
 .card {
@@ -142,6 +143,8 @@ button:hover {
   font-size: 1.75rem;
   border-radius: 5rem;
   padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .subtitle {
@@ -163,6 +166,7 @@ button:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-bottom: 20vh;
 }
 
 .profile:after {
@@ -184,37 +188,6 @@ button:hover {
   padding-right: 3rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-/* Mobile responsive */
-
-@media only screen and (max-width: 1256px) {
-  .banner {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "profile";
-  }
-  .profile {
-    grid-area: profile;
-    align-self: top;
-    justify-self: center;
-    width: 80rem;
-    height: 60rem;
-  }
-  .profile:after {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .header {
-    transform: scale(0.85);
-  }
-
-  .profile {
-    display: none;
-  }
 }
 
 /******** Classes for layout and grid use ********/
@@ -256,4 +229,59 @@ button:hover {
 
 #login-info-nav a {
   color: black;
+}
+
+/* Mobile responsive */
+@media only screen and (min-width: 1500px) {
+  .banner {
+    grid-template-columns: 1fr 60rem 60rem 1fr;
+    grid-template-areas: ". header profile .";
+  }
+  .profile {
+    margin-right: 40%;
+    padding-left: 4rem;
+  }
+}
+@media only screen and (max-width: 1256px) {
+  .banner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "profile";
+  }
+  .profile {
+    grid-area: profile;
+    align-self: top;
+    justify-self: center;
+    width: 80rem;
+    height: 60rem;
+  }
+  .profile:after {
+    display: none;
+  }
+}
+@media only screen and (max-width: 948px) {
+  .profile {
+    grid-area: profile;
+    align-self: top;
+    justify-self: center;
+    width: 60rem;
+    height: 40rem;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    transform: scale(0.85);
+  }
+
+  .profile {
+    display: none;
+  }
 }
