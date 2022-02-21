@@ -43,7 +43,7 @@ function Header(props) {
       title: "Categories",
       linkInfo: [...importedCategories],
       ariaLabel: "Open category dropdown",
-    },
+    }, 
   ];
 
   return (
