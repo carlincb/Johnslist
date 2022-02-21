@@ -61,7 +61,7 @@ function Header(props) {
               aria-label={menu.ariaLabel}
             >
               {menu.title}
-              <i></i>
+              <i className="fa fa-angle-down"></i>
             </button>
             <div className="link-section dropdown-menu flex column">
               {menu.linkInfo.map((newLink) => (
