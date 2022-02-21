@@ -1,0 +1,16 @@
+.add-product-page {
+  background-image: url("../images/pagebackground.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  align-items: center;
+  height: 8vh;
+  padding: 1rem;
+  margin-top: 1rem;
+}
