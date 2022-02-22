@@ -39,17 +39,7 @@ const AddProductPage = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(
-      addProduct({
-        variables: {
-          username: formState.username,
-          name: formState.name,
-          description: formState.description,
-          price: parseFloat(formState.price),
-          image: formState.image,
-        },
-      })
-    );
+    
     try {
       const { data } = await addProduct({
         variables: {
