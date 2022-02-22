@@ -12,6 +12,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import AddProduct from './pages/AddProduct';
+// import UserProducts from './pages/UserProducts';
+import ProductGallery from './pages/ProductGallery';
 import NoMatch from './pages/NoMatch';
 import './App.css';
 
@@ -44,6 +46,8 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/add-product" component={AddProduct} />
+          <Route exact path="/product-gallery" component={ProductGallery} />
+          {/* <Route exact path="/user-products" component={UserProducts} /> */}
           <Route component={NoMatch} />
         </Switch>
       </Router>

@@ -5,7 +5,7 @@ export const QUERY_ALL_PRODUCTS = gql`
     products {
       _id
       username
-      title
+      name
       description
       image
       price
