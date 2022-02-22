@@ -46,7 +46,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/add-product" component={AddProduct} />
           <Route component={NoMatch} />
-          <Route path="/categories/:category" component={CategoryPage} />
+          <Route exact path="/categories/:category" component={CategoryPage} />
         </Switch>
       </Router>
     </ApolloProvider>

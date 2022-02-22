@@ -12,7 +12,7 @@ function Header(props) {
   //loop that appends category data to the imported categories array.
   categoryData.map((i) =>
     importedCategories.push({
-      href: `categories/${i.categoryName.toLowerCase().replace(/ /g, "-")}`,
+      href: `/categories/${i.categoryName.toLowerCase().replace(/ /g, "-")}`,
       text: i.categoryName,
     })
   );
@@ -51,7 +51,7 @@ function Header(props) {
     <header>
       <link rel="stylesheet" href={siteTheme} />
       <a href="/" id="home-link">
-        <img src="./images/kintsugi_logo.png" alt="Go to Kintsugi home page" />
+        <img src="images/kintsugi_logo.png" alt="Go to Kintsugi home page" />
       </a>
       <nav id="sale-nav" className="navbar">
         {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
