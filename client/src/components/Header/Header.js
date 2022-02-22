@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
+import Auth from '../../utils/auth';
 
 function Header(props) {
   //Grabs the categories
@@ -81,7 +82,15 @@ function Header(props) {
         <a className="nav-item" href="about">
           About Us
         </a>
-        <a
+        {Auth.loggedIn() ? (
+          <a 
+          href="/" 
+          onClick={Auth.logout} 
+          className="link-btn nav-item">
+            Logout
+          </a>
+        ) : (
+          <a
           className="nav-item"
           href="login"
           id="login-link"
@@ -89,6 +98,7 @@ function Header(props) {
         >
           Login
         </a>
+        )}
         {/* Checkbox for toggling between light and dark themes */}
         <input
           className="nav-item"
