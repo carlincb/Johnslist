@@ -20,6 +20,7 @@ type Category {
   }
 
 type Product {
+    _id: ID
     name: String
     description: String
     image: String
@@ -43,8 +44,6 @@ type Product {
   input ProductInfo {
     _id: ID
     name: String
-    price: Float!
-    image: String
     description: String
     price: Float
     image: String
