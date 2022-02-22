@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const productSchema = require('./Product');
+const Product = require('./Product');
 
 const categorySchema = new Schema(
     {
@@ -9,7 +9,11 @@ const categorySchema = new Schema(
             minLength: 1,
             maxLength: 48
         },
-        products: [productSchema]
+        products: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Product'
+
+        }]
     },
     {
         toJSON: {

@@ -20,12 +20,11 @@ type Category {
   }
 
 type Product {
-    productId: ID!
+    _id: ID
     name: String!
     description: String
     image: String
     price: Float!
-    username: String!
   }
 
   type Order{
@@ -40,12 +39,11 @@ type Product {
   }
 
   input ProductInfo {
-    productId: String!
     name: String!
     description: String
     price: Float!
     image: String
-    username: String!
+
   }
 
   type Checkout{
