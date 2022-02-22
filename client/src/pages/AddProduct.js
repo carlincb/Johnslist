@@ -72,8 +72,8 @@ const AddProductPage = () => {
   return (
     // select category
     <form className="add-product-page" onSubmit={handleFormSubmit}>
-        <h1>Ready to add what could be someone's treasure?</h1>
-        {/* <label>
+      <h1>Ready to add what could be someone's treasure?</h1>
+      {/* <label>
                 Select the category you feel this fits in:
                 <select
                     name="category"
@@ -83,23 +83,23 @@ const AddProductPage = () => {
                 />
                 <option key=""></option>
                 {/* Need to work out how we pull the categories */}
-        {/* {categories.map((category) => (
+      {/* {categories.map((category) => (
                 <option key={category}>{category}</option>
             ))} */}
-        {/* </label> * /} */}
-        <label>
-          {" "}
-          Your Username:
-          <input name="username" type="text" onChange={handleChange} required />
-        </label>
-        <label>
-          Product Name:
-          <input name="name" type="text" onChange={handleChange} required />
-        </label>
-        <label>
-          Image:
-          {/* This is where we need to add that image thing from the previous project */}
-          {/* <input
+      {/* </label> * /} */}
+      <label>
+        {" "}
+        Your Username:
+        <input name="username" type="text" onChange={handleChange} required />
+      </label>
+      <label>
+        Product Name:
+        <input name="name" type="text" onChange={handleChange} required />
+      </label>
+      <label>
+        Image:
+        {/* This is where we need to add that image thing from the previous project */}
+        {/* <input
                     name="image"
                     type="input"
                     value={image}
@@ -127,7 +127,8 @@ const AddProductPage = () => {
         <input name="price" type="text" onChange={handleChange} required />
       </label>
       <button type="submit">Submit</button>
-    </form>
+    </div>
+    </form >
   );
 };
 
