@@ -1,8 +1,10 @@
-const { Schema, Types } = require('mongoose');
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 
 const productSchema = new Schema(
     {
-        productName: {
+        name: {
             type: String,
             required: true
         },
@@ -24,6 +26,11 @@ const productSchema = new Schema(
             type: Date,
             default: Date.now,
             get: d => d.toLocaleString('en-us', {year: "numeric", month: "2-digit", day: "two-digit"})
+        },
+        category: {
+            type: Schema.Types.ObjectId,
+            ref: 'Category',
+            required: false
         }
     },
     {
@@ -34,4 +41,6 @@ const productSchema = new Schema(
     }
 );
 
-module.exports = productSchema;
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;
