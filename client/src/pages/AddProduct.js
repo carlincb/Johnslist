@@ -72,7 +72,6 @@ const AddProductPage = () => {
   return (
     // select category
     <form className="add-product-page" onSubmit={handleFormSubmit}>
-      <div>
         <h1>Ready to add what could be someone's treasure?</h1>
         {/* <label>
                 Select the category you feel this fits in:
