@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../utils/mutations";
 import "./addproduct.css";
@@ -38,16 +38,30 @@ const AddProductPage = () => {
   };
 
   const handleFormSubmit = async (event) => {
+    console.log('----------------HANDLE SUBMIT----------------------')
     event.preventDefault();
-    
+    console.log(formState);
+    console.log(
+      addProduct({
+        variables: {
+          productData: {
+            name: formState.name,
+            description: formState.description,
+            price: parseFloat(formState.price),
+            image: formState.image,
+          }
+        },
+      })
+    );
+
     try {
       const { data } = await addProduct({
         variables: {
-          username: formState.username,
-          name: formState.name,
-          description: formState.description,
-          image: formState.image,
-          price: parseFloat(formState.price),
+          productData: {
+            name: formState.name,
+            description: formState.description,
+            price: parseFloat(formState.price),
+          }
         },
       });
       console.log(data);
@@ -58,7 +72,6 @@ const AddProductPage = () => {
   return (
     // select category
     <form className="add-product-page" onSubmit={handleFormSubmit}>
-      <div>
         <h1>Ready to add what could be someone's treasure?</h1>
         {/* <label>
                 Select the category you feel this fits in:
@@ -93,28 +106,27 @@ const AddProductPage = () => {
                     onChange={e => setImage(e.target.value)}
                     required
                 /> */}
-          <ImageUploads
-            formState={formState}
-            setFormState={setFormState}
-            setImage={setImage}
-            image={image}
-          />
-        </label>
-        <label>
-          Description:
-          <input
-            name="description"
-            type="text"
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Price:
-          <input name="price" type="text" onChange={handleChange} required />
-        </label>
-        <button>Submit</button>
-      </div>
+        <ImageUploads
+          formState={formState}
+          setFormState={setFormState}
+          setImage={setImage}
+          image={image}
+        />
+      </label>
+      <label>
+        Description:
+        <input
+          name="description"
+          type="text"
+          onChange={handleChange}
+          required
+        />
+      </label>
+      <label>
+        Price:
+        <input name="price" type="text" onChange={handleChange} required />
+      </label>
+      <button type="submit">Submit</button>
     </form>
   );
 };

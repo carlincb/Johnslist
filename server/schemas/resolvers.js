@@ -26,14 +26,14 @@ const resolvers = {
         product: async (parent, { _id }) => {
             return await Product.findById(_id).populate('category');
         },
+        // TODO: rename this to me
         user: async (parent, args, context) => {
+            console.log(context.user)
             if (context.user) {
-                const user = await User.findById(context.user.id).populate({
-                    path: 'products',
-                    populate: 'category',
-                });
-
-                user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+                console.log("---found current user ----");
+                const user = await User.findById(context.user._id).populate("listedItems");
+                console.log('user: ', user)
+                // user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
                 return user;
             }
@@ -79,7 +79,7 @@ const resolvers = {
                 payment_method_types: ['card'],
                 items,
                 mode: 'payment',
-                sucees_url: `${url}/sucess?session_id={}`,//pass in the checkout session id
+                success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,//pass in the checkout session id
                 cancel_url: `${url}/`
             })
 
@@ -140,19 +140,24 @@ const resolvers = {
         },
 
 
-        addProduct: async (parent, { _id, name, username, price, description, image }, context) => {
-            console.log(context.user)
+        addProduct: async (parent, { productData }, context) => {
+            console.log(context.user, productData)
+            const { name, description, price } = productData;
             if (context.user) {
+                console.log("---- about to create product ----")
+
                 //add product needs to be pushed to the sell
-                const product = await Product.create({ _id, name, username, price, description, image });
+                const product = await Product.create({ name, description, price });
+
+                console.log("----product----", product);
 
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { listedItems: product._id } },
+                    { $addToSet: { listedItems: product._id } },
                     { new: true }
                 )
 
-                return { product, updatedUser };
+                return updatedUser;
             }
         },
 
@@ -160,7 +165,7 @@ const resolvers = {
             if (context.user) {
                 const updatedProduct = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { listedItems: { productId: productId }}},
+                    { $pull: { listedItems: { productId: productId } } },
                     { new: true }
                 )
                 return updatedProduct;

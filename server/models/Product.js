@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, Types, model } = require('mongoose');
 
 const productSchema = new Schema(
     {
@@ -14,10 +12,6 @@ const productSchema = new Schema(
         description: {
             type: String
         },
-        username: {
-            type: String,
-            required: true
-        },
         price: {
             type: Number,
             required: true
@@ -25,12 +19,7 @@ const productSchema = new Schema(
         addedAt: {
             type: Date,
             default: Date.now,
-            get: d => d.toLocaleString('en-us', {year: "numeric", month: "2-digit", day: "two-digit"})
-        },
-        category: {
-            type: Schema.Types.ObjectId,
-            ref: 'Category',
-            required: false
+            get: d => d.toLocaleString('en-us', { year: "numeric", month: "2-digit", day: "two-digit" })
         }
     },
     {
@@ -41,6 +30,7 @@ const productSchema = new Schema(
     }
 );
 
-const Product = mongoose.model('Product', productSchema);
+const Product = model('Product', productSchema);
 
 module.exports = Product;
+
