@@ -9,9 +9,11 @@ const categorySchema = new Schema(
             minLength: 1,
             maxLength: 48
         },
-        products: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Product'
+
+        products: [Product.schema],
+//         products: [{
+//             type: Schema.Types.ObjectId,
+//             ref: 'Product'
 
         }]
     },
