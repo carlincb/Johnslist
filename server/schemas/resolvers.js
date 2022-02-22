@@ -140,11 +140,11 @@ const resolvers = {
         },
 
 
-        addProduct: async (parent, { productData } , context) => {
-            console.log(context.user, productData)
+        addProduct: async (parent, { _id, name, username, price, description, image }, context) => {
+            console.log(context.user)
             if (context.user) {
                 //add product needs to be pushed to the sell
-                const product = await Product.create({ productData });
+                const product = await Product.create({ _id, name, username, price, description, image });
 
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -152,7 +152,7 @@ const resolvers = {
                     { new: true }
                 )
 
-                return updatedUser;
+                return { product, updatedUser };
             }
         },
 
