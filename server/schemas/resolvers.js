@@ -79,7 +79,7 @@ const resolvers = {
                 payment_method_types: ['card'],
                 items,
                 mode: 'payment',
-                sucees_url: `${url}/sucess?session_id={}`,//pass in the checkout session id
+                success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,//pass in the checkout session id
                 cancel_url: `${url}/`
             })
 
