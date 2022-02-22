@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import AddProduct from './pages/AddProduct';
 import NoMatch from './pages/NoMatch';
+import CategoryPage from './pages/CategoryPage';
 import './App.css';
 
 const httpLink = createHttpLink({
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/add-product" component={AddProduct} />
           <Route component={NoMatch} />
+          <Route path="/categories/:category" component={CategoryPage} />
         </Switch>
       </Router>
     </ApolloProvider>

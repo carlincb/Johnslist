@@ -12,7 +12,7 @@ function Header(props) {
   //loop that appends category data to the imported categories array.
   categoryData.map((i) =>
     importedCategories.push({
-      href: i.categoryName.toLowerCase().replace(/ /g, "-"),
+      href: `categories/${i.categoryName.toLowerCase().replace(/ /g, "-")}`,
       text: i.categoryName,
     })
   );
