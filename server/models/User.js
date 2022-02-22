@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const productSchema = require('./Product')
+const Product = require('./Product');
 
 //Imports the productSchema so the user can add products to a wishlist if they are a buyer and List items if they are a seller.
 
@@ -33,8 +33,8 @@ const userSchema = new Schema(
             required: true,
             default: false
         },
-        wishlist: [productSchema],
-        listedItems: [productSchema]
+        wishlist: [Product.schema],
+        listedItems: [Product.schema],
     },
     {
         toJSON: {
