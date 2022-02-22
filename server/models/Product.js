@@ -20,6 +20,12 @@ const productSchema = new Schema(
             type: Date,
             default: Date.now,
             get: d => d.toLocaleString('en-us', { year: "numeric", month: "2-digit", day: "two-digit" })
+        },
+        category: {
+            type: Schema.Types.ObjectId,
+            ref: 'Category',
+            required: false
+
         }
     },
     {
