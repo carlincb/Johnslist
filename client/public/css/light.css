@@ -1,15 +1,46 @@
 :root {
-    --ks-primary: #fec234;
-    --ks-secondary: #333333;
-    --ks-highlight: #eeeeee;
-    --ks-background: #37435b;
+  --ks-primary: #fec234;
+  --ks-secondary: #333333;
+  --ks-highlight: #eeeeee;
+  --ks-background: #37435b;
 }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700|Work+Sans:300&display=swap");
+
 body {
-    background-color: var(--ks-highlight);
+  background-color: var(--ks-highlight);
+}
+
+a {
+  text-decoration: none;
+  color: var(--ks-highlight);
+}
+a:visited {
+  color: var(--ks-highlight);
+}
+.about-us-link {
+  color: var(--ks-secondary);
+}
+.about-us-link:visited {
+  color: var(--ks-secondary);
+}
+
+.subtitle {
+  color: #b08a32;
 }
 
 .link-btn {
-    background-color: var(--ks-background);
-    color: white;
+  background-color: var(--ks-background);
+  color: white !important;
+}
+.btn-2 {
+  background-color: var(--ks-background);
+}
+.profile:after {
+  content: url(../images/arthomelight.png);
+}
+@media only screen and (max-width: 1256px) {
+  .profile {
+    background-image: url(../images/arthomelight.png);
+  }
 }

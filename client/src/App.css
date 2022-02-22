@@ -8,17 +8,48 @@
   --transparent: rgba(0, 0, 0, 0);
 }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700|Work+Sans:300&display=swap");
+
 /******** Basic site styles ********/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+}
 
 body {
   background-color: var(--ks-highlight);
+  font-size: 1.5rem;
+}
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "banner";
 }
 
 header {
   display: flex;
-  background-color: var(--transparent);
   margin-bottom: 0vh;
   align-content: center;
+}
+
+h1 {
+  font-family: "Work Sans", sans-serif;
+  font-size: 7.2rem;
+  font-weight: 300;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+.link-btn:hover {
+  opacity: 0.5;
 }
 
 /******** Classes for styling specific items ********/
@@ -28,6 +59,33 @@ header {
 .navbar {
   display: flex;
   justify-content: space-evenly;
+  align-content: center;
+  background-color: var(--transparent);
+}
+.nav-item {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+.banner {
+  grid-area: banner;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 60rem 60rem;
+  grid-gap: 2rem;
+  grid-template-areas: "header profile";
+}
+
+.header {
+  grid-area: header;
+  align-self: top;
+  justify-self: center;
+  padding: 2rem;
+  margin-bottom: 20vh;
+  background-color: var(--transparent);
 }
 
 .card {
@@ -36,19 +94,34 @@ header {
   align-items: center;
   flex-direction: column;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   padding: 0%;
 }
 
 .link-dropdown {
   border-color: var(--transparent);
   background-color: var(--transparent);
+  font-size: 125%;
+}
+
+.link-dropdown:hover {
+  cursor: pointer;
 }
 
 .link-dropdown:focus + .dropdown-menu {
   opacity: 1;
-  pointer-events: all;
+  visibility: visible;
+  display: block;
   transform: translateY(0%);
+}
+
+.link-dropdown i {
+  transform: rotate(0deg);
+  transition: all 0.5s ease;
+}
+
+.link-dropdown:focus > i {
+  transform: rotate(180deg);
 }
 
 .dropdown-menu {
@@ -56,25 +129,74 @@ header {
   text-align: center;
   justify-content: space-around;
   align-items: center;
+  visibility: hidden;
+  display: none;
   opacity: 0;
-  pointer-events: none;
-  transform: tanslateY(-2%);
-  transition: all 0.5s ease;
+  transform: translateY(-5%);
+  transition: all 0.5s 0.3s ease;
+  position: absolute;
 }
 
 .dropdown-item {
   color: black;
   text-decoration: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .link-btn {
-  border-radius: 5px;
+  border-radius: 0.5rem;
   color: black;
   text-decoration: none;
-  padding: 3% 10%;
+  font-size: 1.75rem;
+  border-radius: 5rem;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-/* Mobile responsive */
+.subtitle {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.profile {
+  position: relative;
+  grid-area: profile;
+  align-self: top;
+  justify-self: center;
+  width: 60rem;
+  height: 60rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20vh;
+}
+
+.profile:after {
+  position: absolute;
+  bottom: -2.6rem;
+  width: 32rem;
+  height: 32rem;
+}
+
+.title {
+  margin-bottom: 8rem;
+}
+
+.btn-2 {
+  font-size: 1.75rem;
+  border-radius: 5rem;
+  border: 0rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
 
 /******** Classes for layout and grid use ********/
 
@@ -102,6 +224,10 @@ header {
   flex-direction: column;
 }
 
+.row {
+  flex-direction: row;
+}
+
 /******** unique id styles ********/
 
 #login-info-nav {
@@ -109,43 +235,61 @@ header {
   margin-right: 1vw;
 }
 
-/******** Default React styles that can be removed ********/
-
-.App {
-  text-align: center;
+#login-info-nav a {
+  color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Mobile responsive */
+@media only screen and (min-width: 1500px) {
+  .banner {
+    grid-template-columns: 1fr 60rem 60rem 1fr;
+    grid-template-areas: ". header profile .";
+  }
+  .profile {
+    margin-right: 40%;
+    padding-left: 4rem;
+  }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 1256px) {
+  .banner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "profile";
+  }
+  .profile {
+    grid-area: profile;
+    align-self: top;
+    justify-self: center;
+    width: 80rem;
+    height: 60rem;
+  }
+  .profile:after {
+    display: none;
+  }
+}
+@media only screen and (max-width: 948px) {
+  .profile {
+    grid-area: profile;
+    align-self: top;
+    justify-self: center;
+    width: 60rem;
+    height: 40rem;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 600px) {
+  .header {
+    transform: scale(0.85);
   }
-  to {
-    transform: rotate(360deg);
+
+  .profile {
+    display: none;
   }
 }

@@ -1,16 +1,41 @@
 :root {
-    --ks-primary: #fec234;
-    --ks-secondary: #333333;
-    --ks-highlight: #eeeeee;
-    --ks-background: #37435b;
+  --ks-primary: #fec234;
+  --ks-secondary: #333333;
+  --ks-highlight: #eeeeee;
+  --ks-background: #37435b;
+  --ks-link-color: #1f1f1f;
 }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700|Work+Sans:300&display=swap");
+
 body {
-    background-color: var(--ks-background);
-    color: white;
+  background-color: var(--ks-background);
+  color: white;
+}
+a {
+  text-decoration: none;
+  color: var(--ks-link-color);
+}
+a:visited {
+  color: var(--ks-link-color);
 }
 
 .link-btn {
-    background-color: var(--ks-primary);
-    color: black;
+  background-color: var(--ks-primary);
+  font-size: 1.5rem;
+  border-radius: 5rem;
 }
+.btn-2 {
+  background-color: var(--ks-primary);
+}
+
+.profile:after {
+  content: url(../images/arthomedark.png);
+}
+
+@media only screen and (max-width: 1256px) {
+  .profile {
+    background-image: url(../images/arthomedark.png);
+  }
+}
+
