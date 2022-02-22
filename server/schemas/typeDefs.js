@@ -28,6 +28,7 @@ type Product {
     addedAt: String
     username: String
     category: Category
+
   }
 
   type Order{
@@ -44,10 +45,12 @@ type Product {
   input ProductInfo {
     _id: ID
     name: String
+
     description: String
     price: Float
     image: String
     username: String
+
   }
 
   type Checkout{
