@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../utils/queries';
 
-function CategoryPage(props) {
+function CategoryPage(props, { category }) {
     //Gets the current category from the url to be used in a query and displaying
-    const currentCategory = window.location.href.slice('/categories/')
+    const currentCategory = category.slice('/categories/')
     .replace(/-/g, ' ').split(' ')
     .map(c => c.charAt(0).toUpperCase).join(' ');
 

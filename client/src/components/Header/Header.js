@@ -27,16 +27,16 @@ function Header(props) {
     {
       title: "Sell",
       linkInfo: [
-        { href: "selling-info", text: "Information" },
-        { href: "add-product", text: "Add Product" },
+        { href: "/selling-info", text: "Information" },
+        { href: "/add-product", text: "Add Product" },
       ],
       ariaLabel: "Open seller dropdown",
     },
     {
       title: "Buy",
       linkInfo: [
-        { href: "buying-info", text: "Information" },
-        { href: "marketplace", text: "Marketplace" },
+        { href: "/buying-info", text: "Information" },
+        { href: "/marketplace", text: "Marketplace" },
       ],
       ariaLabel: "Open buyer dropdown",
     },
