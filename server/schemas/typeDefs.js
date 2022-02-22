@@ -20,12 +20,14 @@ type Category {
   }
 
 type Product {
-    productId: ID!
-    name: String!
+    _id: ID
+    name: String
     description: String
     image: String
-    price: Float!
-    username: String!
+    price: Float
+    addedAt: String
+    username: String
+    category: Category
   }
 
   type Order{
@@ -40,12 +42,12 @@ type Product {
   }
 
   input ProductInfo {
-    productId: String!
-    name: String!
+    _id: ID
+    name: String
     description: String
-    price: Float!
+    price: Float
     image: String
-    username: String!
+    username: String
   }
 
   type Checkout{
@@ -66,7 +68,7 @@ type Product {
     addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addProduct(productData: ProductInfo): Product
+    addProduct(_id: ID, username: String, name: String, image: String, description: String, price: Float): Product
     deleteProduct(_id: ID!): Product
   }
 `;
