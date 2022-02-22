@@ -38,26 +38,30 @@ const AddProductPage = () => {
   };
 
   const handleFormSubmit = async (event) => {
+    console.log('----------------HANDLE SUBMIT----------------------')
     event.preventDefault();
+    console.log(formState);
     console.log(
       addProduct({
         variables: {
-          username: formState.username,
-          name: formState.name,
-          description: formState.description,
-          price: parseFloat(formState.price),
-          image: formState.image,
+          productData: {
+            name: formState.name,
+            description: formState.description,
+            price: parseFloat(formState.price),
+            image: formState.image,
+          }
         },
       })
     );
+
     try {
       const { data } = await addProduct({
         variables: {
-          username: formState.username,
-          name: formState.name,
-          description: formState.description,
-          image: formState.image,
-          price: parseFloat(formState.price),
+          productData: {
+            name: formState.name,
+            description: formState.description,
+            price: parseFloat(formState.price),
+          }
         },
       });
       console.log(data);
@@ -122,7 +126,7 @@ const AddProductPage = () => {
         Price:
         <input name="price" type="text" onChange={handleChange} required />
       </label>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

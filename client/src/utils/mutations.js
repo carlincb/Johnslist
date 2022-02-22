@@ -39,10 +39,7 @@ export const LOGIN = gql`
 export const ADD_PRODUCT = gql`
     mutation addProduct($productData: ProductInfo) {
       addProduct(productData: $productData) { 
-          productId
-          username
           name
-          image
           description
           price
       }

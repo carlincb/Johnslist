@@ -41,7 +41,6 @@ const userSchema = new Schema(
         listedItems: [{
             type: Schema.Types.ObjectId,
             ref: 'Product'
-
         }]
     },
     {
