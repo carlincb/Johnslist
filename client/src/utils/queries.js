@@ -5,7 +5,7 @@ export const QUERY_PRODUCTS = gql`
     products {
       _id
       username
-      title
+      name
       description
       image
       price
