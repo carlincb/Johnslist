@@ -40,7 +40,6 @@ const AddProductPage = () => {
   const handleFormSubmit = async (event) => {
     console.log('----------------HANDLE SUBMIT----------------------')
     event.preventDefault();
-
     console.log(formState);
     console.log(
       addProduct({
@@ -129,7 +128,6 @@ const AddProductPage = () => {
         <input name="price" type="text" onChange={handleChange} required />
       </label>
       <button type="submit">Submit</button>
-      </div>
     </form>
   );
 };
