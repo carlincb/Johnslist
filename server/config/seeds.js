@@ -3,7 +3,7 @@ const { Category, Product, User } = require('../models');
 
 db.once('open', async () => {
     //Uncomment the below line to clear the current categories
-    // await Category.deleteMany();
+    //const clearCategories = await Category.deleteMany();
 
     //This is the seeds for the category. Edit here to change the categories then run 'npm run seed' to add them.
     const categories = await Category.insertMany([
