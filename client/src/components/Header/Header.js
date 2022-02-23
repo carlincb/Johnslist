@@ -27,7 +27,7 @@ function Header(props) {
     {
       title: "Sell",
       linkInfo: [
-        { href: "selling-info", text: "Information" },
+        { href: "my-products", text: "My Products For Sale" },
         { href: "add-product", text: "Add Product" },
       ],
       ariaLabel: "Open seller dropdown",
@@ -44,7 +44,7 @@ function Header(props) {
       title: "Categories",
       linkInfo: [...importedCategories],
       ariaLabel: "Open category dropdown",
-    }, 
+    },
   ];
 
   return (
@@ -83,21 +83,21 @@ function Header(props) {
           About Us
         </a>
         {Auth.loggedIn() ? (
-          <a 
-          href="/" 
-          onClick={Auth.logout} 
-          className="link-btn nav-item">
+          <a
+            href="/"
+            onClick={Auth.logout}
+            className="link-btn nav-item">
             Logout
           </a>
         ) : (
           <a
-          className="nav-item"
-          href="login"
-          id="login-link"
-          className="link-btn nav-item"
-        >
-          Login
-        </a>
+            className="nav-item"
+            href="login"
+            id="login-link"
+            className="link-btn nav-item"
+          >
+            Login
+          </a>
         )}
         {/* Checkbox for toggling between light and dark themes */}
         <input

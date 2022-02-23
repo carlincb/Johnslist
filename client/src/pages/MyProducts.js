@@ -1,12 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/client';
+// import Auth from '../utils/auth';
 import { QUERY_PRODUCTS } from '../utils/queries';
+// import { REMOVE_PRODUCT } from '../utils/mutations';
 import './myproducts.css';
 
-const ProductGallery = () => {
+const MyProducts = () => {
     const { loading, data } = useQuery(QUERY_PRODUCTS);
     const productData = data?.products || [];
+    console.log(productData);
 
+    // const handleDeleteProduct = async (productData) => {
+    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    //     if (!token) {
+    //         return false;
+    //     }
+
+    //     try {
+    //         const { data } = await deleteProduct({
+    //             variables: { _id }
+
+    //         }); console.log("product deleted");
+
+
+    //         // upon success, remove book's id from localStorage
+    //         removeProductId(_id);
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
     return (
         <div className='productCards'>
             <div className="card" style={{ width: "10%" }}>
@@ -29,5 +52,4 @@ const ProductGallery = () => {
     )
 }
 
-export default ProductGallery;
-
+export default MyProducts;

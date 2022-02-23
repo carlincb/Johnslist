@@ -5,11 +5,7 @@ import "./addproduct.css";
 import ImageUploads from "../components/ImageUploads";
 
 const AddProductPage = () => {
-  const [productName, setProductName] = useState("");
-  const [username, setUsername] = useState("");
   const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
   const [formState, setFormState] = useState({
     name: "",
     username: "",
@@ -35,6 +31,7 @@ const AddProductPage = () => {
       [name]: value,
     });
     console.log(formState);
+    localStorage.setItem('my_products', JSON.stringify({ formState }));
   };
 
   const handleFormSubmit = async (event) => {
@@ -44,11 +41,11 @@ const AddProductPage = () => {
     try {
       const { data } = await addProduct({
         variables: {
-            name: formState.name,
-            username: formState.username,
-            image: formState.image,
-            description: formState.description,
-            price: parseFloat(formState.price),
+          name: formState.name,
+          username: formState.username,
+          image: formState.image,
+          description: formState.description,
+          price: parseFloat(formState.price),
         },
       });
       console.log(data);
