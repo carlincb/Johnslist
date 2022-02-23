@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 function Header(props) {
   //Grabs the categories
@@ -36,7 +36,6 @@ function Header(props) {
     {
       title: "Buy",
       linkInfo: [
-
         { href: "wishlist", text: "Wishlist" },
         { href: "marketplace", text: "Marketplace" },
       ],
@@ -64,7 +63,7 @@ function Header(props) {
               aria-label={menu.ariaLabel}
             >
               {menu.title}
-              <i className="fa fa-angle-down"></i>
+              &nbsp;<i className="fa fa-angle-down"></i>
             </button>
             <div className="link-section dropdown-menu flex column">
               {menu.linkInfo.map((newLink) => (
@@ -85,10 +84,7 @@ function Header(props) {
           About Us
         </a>
         {Auth.loggedIn() ? (
-          <a
-            href="/"
-            onClick={Auth.logout}
-            className="link-btn nav-item">
+          <a href="/" onClick={Auth.logout} className="link-btn nav-item">
             Logout
           </a>
         ) : (
