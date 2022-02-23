@@ -165,12 +165,16 @@ const resolvers = {
 
         deleteProduct: async (parent, { productId }, context) => {
             if (context.user) {
-                const updatedProduct = await User.findByIdAndUpdate(
+                console.log(context.user);
+                console.log(productId);
+                const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { listedItems: { productId: productId } } },
+                    { $pull: { listedItems: { _id: productId } } },
                     { new: true }
                 )
-                return updatedProduct;
+                console.log(updatedUser);
+                return updatedUser;
+
             }
             return;
         },

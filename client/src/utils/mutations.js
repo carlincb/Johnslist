@@ -33,10 +33,9 @@ export const ADD_PRODUCT = gql`
 `;
 
 export const REMOVE_PRODUCT = gql`
-    mutation deleteProduct($_id: ID, $name: String, $username: String, $price: Float, $image: String, $description: String) {
-      deleteProduct(_id: $_id, name: $name, username: $username, price: $price, image: $image, description: $description) { 
-        _id
-        username
-         }
+    mutation deleteProduct($productId: ID) {
+      deleteProduct(productId: $productId) {
+      _id
+      }
   }
 `;
