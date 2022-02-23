@@ -46,7 +46,7 @@ export const ADD_PRODUCT = gql`
 `;
 
 export const REMOVE_PRODUCT = gql`
-    mutation deleteProduct($productId: ID!, $productName: String!, $image: String, $description: String, $username: String!, $price: Float!) {
+    mutation deleteProduct($_id: ID, $name: String, $username: String, $price: Float, $image: String, $description: String) {
       deleteProduct(productId: $_id, productName: $productName, price: $price, username: $username) {
         _id
         username

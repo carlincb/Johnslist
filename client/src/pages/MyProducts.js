@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 // import Auth from '../utils/auth';
 import { MY_PRODUCTS } from '../utils/queries';
-// import { REMOVE_PRODUCT } from '../utils/mutations';
+import { REMOVE_PRODUCT } from '../utils/mutations';
 import './myproducts.css';
 
 const MyProducts = () => {
@@ -45,7 +45,7 @@ const MyProducts = () => {
 
                     ))
                 )}
-
+                <button >Remove this product?</button>
             </div>
         </div>
 
