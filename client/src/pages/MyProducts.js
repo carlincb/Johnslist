@@ -1,13 +1,13 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 // import Auth from '../utils/auth';
-import { QUERY_PRODUCTS } from '../utils/queries';
+import { MY_PRODUCTS } from '../utils/queries';
 // import { REMOVE_PRODUCT } from '../utils/mutations';
 import './myproducts.css';
 
 const MyProducts = () => {
-    const { loading, data } = useQuery(QUERY_PRODUCTS);
-    const productData = data?.products || [];
+    const { loading, data } = useQuery(MY_PRODUCTS);
+    const productData = data?.user.listedItems || [];
     console.log(productData);
 
     // const handleDeleteProduct = async (productData) => {
