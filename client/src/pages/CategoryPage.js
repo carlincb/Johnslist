@@ -16,6 +16,8 @@ function CategoryPage(props) {
         variables: { categoryName: currentCategory }
     });
 
+    if (error) return <h1>{currentCategory} doesn't exist or there was a connection problem</h1>;
+
     return (
         <h1>{currentCategory}</h1>
     )
