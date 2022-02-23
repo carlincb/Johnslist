@@ -15,10 +15,11 @@ function CategoryPage(props) {
     const { data, error } = useQuery(QUERY_CATEGORY, {
         variables: { categoryName: currentCategory }
     });
+    const categoryData = data?.category || {};
 
-    console.log(data);
+    console.log(data?.category);
 
-    if (error) return <h1>{currentCategory} doesn't exist or there was a connection problem</h1>;
+    if (!categoryData._id) return <h1>{currentCategory} doesn't exist or there was a connection problem</h1>;
 
     return (
         <h1>{currentCategory}</h1>
