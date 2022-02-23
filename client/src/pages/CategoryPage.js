@@ -17,8 +17,9 @@ function CategoryPage(props) {
     });
     const categoryData = data?.category || {};
 
-    console.log(data?.category);
+    //console.log(data?.category);
 
+    //Conditional rendering that displays an error if the user enters a category that doesn't exist.
     if (!categoryData._id) return <h1>{currentCategory} doesn't exist or there was a connection problem</h1>;
 
     return (
