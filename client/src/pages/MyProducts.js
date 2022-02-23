@@ -45,7 +45,7 @@ const MyProducts = () => {
 
                     ))
                 )}
-                <button >Remove this product?</button>
+                {/* <button onChange={removeProductId} >Remove this product?</button> */}
             </div>
         </div>
 
