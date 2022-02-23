@@ -1,14 +1,14 @@
 export const getSavedProductIds = () => {
-    const savedProductIds = localStorage.getItem('saved_products')
-        ? JSON.parse(localStorage.getItem('saved_products'))
+    const savedProductIds = localStorage.getItem('my_products')
+        ? JSON.parse(localStorage.getItem('my_products'))
         : [];
 
     return savedProductIds;
 };
 
 export const removeProductId = (productId) => {
-    const savedProductIds = localStorage.getItem('saved_products')
-        ? JSON.parse(localStorage.getItem('saved_products'))
+    const savedProductIds = localStorage.getItem('my_products')
+        ? JSON.parse(localStorage.getItem('my_products'))
         : null;
 
     if (!savedProductIds) {

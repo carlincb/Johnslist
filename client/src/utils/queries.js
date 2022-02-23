@@ -1,16 +1,18 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_ALL_PRODUCTS = gql`
-  query allProducts {
-    products {
-      _id
-      username
-      title
-      description
-      image
-      price
+export const MY_PRODUCTS = gql`
+  query {
+      user {
+       listedItems 
+       {
+        username
+        name
+        description
+        image
+        price
     }
   }
+}
 `;
 
 export const QUERY_PRODUCTS = gql`
@@ -19,13 +21,21 @@ export const QUERY_PRODUCTS = gql`
       _id
       name
       description
+      image
       price
-      quantity
       category {
         categoryName
       }
     }
   }
+`;
+
+export const DELETE_PRODUCTS = gql`
+  {
+    products {
+    _id 
+    }
+}
 `;
 
 export const QUERY_CATEGORIES = gql`

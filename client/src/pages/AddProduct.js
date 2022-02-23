@@ -5,11 +5,7 @@ import "./addproduct.css";
 import ImageUploads from "../components/ImageUploads";
 
 const AddProductPage = () => {
-  const [productName, setProductName] = useState("");
-  const [username, setUsername] = useState("");
   const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
   const [formState, setFormState] = useState({
     name: "",
     username: "",
@@ -35,33 +31,21 @@ const AddProductPage = () => {
       [name]: value,
     });
     console.log(formState);
+    localStorage.setItem('my_products', JSON.stringify({ formState }));
   };
 
   const handleFormSubmit = async (event) => {
     console.log('----------------HANDLE SUBMIT----------------------')
     event.preventDefault();
-    console.log(formState);
-    console.log(
-      addProduct({
-        variables: {
-          productData: {
-            name: formState.name,
-            description: formState.description,
-            price: parseFloat(formState.price),
-            image: formState.image,
-          }
-        },
-      })
-    );
 
     try {
       const { data } = await addProduct({
         variables: {
-          productData: {
-            name: formState.name,
-            description: formState.description,
-            price: parseFloat(formState.price),
-          }
+          name: formState.name,
+          username: formState.username,
+          image: formState.image,
+          description: formState.description,
+          price: parseFloat(formState.price),
         },
       });
       console.log(data);
@@ -72,8 +56,8 @@ const AddProductPage = () => {
   return (
     // select category
     <form className="add-product-page" onSubmit={handleFormSubmit}>
-        <h1>Ready to add what could be someone's treasure?</h1>
-        {/* <label>
+      <h1>Ready to add what could be someone's treasure?</h1>
+      {/* <label>
                 Select the category you feel this fits in:
                 <select
                     name="category"
@@ -83,23 +67,23 @@ const AddProductPage = () => {
                 />
                 <option key=""></option>
                 {/* Need to work out how we pull the categories */}
-        {/* {categories.map((category) => (
+      {/* {categories.map((category) => (
                 <option key={category}>{category}</option>
             ))} */}
-        {/* </label> * /} */}
-        <label>
-          {" "}
-          Your Username:
-          <input name="username" type="text" onChange={handleChange} required />
-        </label>
-        <label>
-          Product Name:
-          <input name="name" type="text" onChange={handleChange} required />
-        </label>
-        <label>
-          Image:
-          {/* This is where we need to add that image thing from the previous project */}
-          {/* <input
+      {/* </label> * /} */}
+      <label>
+        {" "}
+        Your Username:
+        <input name="username" type="text" onChange={handleChange} required />
+      </label>
+      <label>
+        Product Name:
+        <input name="name" type="text" onChange={handleChange} required />
+      </label>
+      <label>
+        Image:
+        {/* This is where we need to add that image thing from the previous project */}
+        {/* <input
                     name="image"
                     type="input"
                     value={image}
@@ -127,7 +111,7 @@ const AddProductPage = () => {
         <input name="price" type="text" onChange={handleChange} required />
       </label>
       <button type="submit">Submit</button>
-    </form>
+    </form >
   );
 };
 
