@@ -42,11 +42,16 @@ export const QUERY_CATEGORIES = gql`
 `;
 
 export const QUERY_CATEGORY = gql`
-  {
-    categories {
+  query Category($categoryName: String!) {
+    category(categoryName: $categoryName) {
       _id
       categoryName
-      products
+      products {
+        name 
+        image
+        description
+        price
+      }
     }
   }
 `;
