@@ -36,8 +36,9 @@ function Header(props) {
     {
       title: "Buy",
       linkInfo: [
-        { href: "/buying-info", text: "Information" },
-        { href: "/marketplace", text: "Marketplace" },
+
+        { href: "wishlist", text: "Wishlist" },
+        { href: "marketplace", text: "Marketplace" },
       ],
       ariaLabel: "Open buyer dropdown",
     },

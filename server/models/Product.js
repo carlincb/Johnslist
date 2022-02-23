@@ -4,7 +4,6 @@ const productSchema = new Schema(
     {
         name: {
             type: String,
-            required: true
         },
         image: {
             type: String
@@ -14,7 +13,6 @@ const productSchema = new Schema(
         },
         price: {
             type: Number,
-            required: true
         },
         addedAt: {
             type: Date,

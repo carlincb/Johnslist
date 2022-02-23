@@ -5,6 +5,7 @@ export const MY_PRODUCTS = gql`
       user {
        listedItems 
        {
+       _id
         username
         name
         description
@@ -30,13 +31,6 @@ export const QUERY_PRODUCTS = gql`
   }
 `;
 
-export const DELETE_PRODUCTS = gql`
-  {
-    products {
-    _id 
-    }
-}
-`;
 
 export const QUERY_CATEGORIES = gql`
   {

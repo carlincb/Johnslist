@@ -23,19 +23,6 @@ export const LOGIN = gql`
   }
 `;
 
-// export const ADD_PRODUCT = gql`
-//     mutation addProduct($productId: ID!, $productName: String!, $image: String, $description: String, $username: String!, $price: Float!) {
-//       addProduct(productId: $_id, productName: $productName, price: $price, username: $username) {
-//         _id
-//         username
-//         productName
-//         image
-//         description
-//         price
-//       }
-//     }
-// `;
-
 export const ADD_PRODUCT = gql`
     mutation addProduct($_id: ID, $name: String, $username: String, $price: Float, $image: String, $description: String) {
       addProduct(_id: $_id, name: $name, username: $username, price: $price, image: $image, description: $description) { 
@@ -46,14 +33,10 @@ export const ADD_PRODUCT = gql`
 `;
 
 export const REMOVE_PRODUCT = gql`
-    mutation deleteProduct($productId: ID!, $productName: String!, $image: String, $description: String, $username: String!, $price: Float!) {
-      deleteProduct(productId: $_id, productName: $productName, price: $price, username: $username) {
+    mutation deleteProduct($_id: ID, $name: String, $username: String, $price: Float, $image: String, $description: String) {
+      deleteProduct(_id: $_id, name: $name, username: $username, price: $price, image: $image, description: $description) { 
         _id
         username
-        productName
-        image
-        description
-        price
-      }
-    }
+         }
+  }
 `;
