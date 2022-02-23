@@ -15,6 +15,7 @@ import AddProduct from './pages/AddProduct';
 import MyProducts from './pages/MyProducts';
 import ProductGallery from './pages/ProductGallery';
 import NoMatch from './pages/NoMatch';
+import CategoryPage from './pages/CategoryPage';
 import './App.css';
 
 const httpLink = createHttpLink({
@@ -49,6 +50,7 @@ function App() {
           <Route exact path="/my-products" component={MyProducts} />
           <Route exact path="/marketplace" component={ProductGallery} />
           {/* <Route exact path="/user-products" component={UserProducts} /> */}
+          <Route exact path="/categories/:category" component={CategoryPage} />
           <Route component={NoMatch} />
         </Switch>
       </Router>

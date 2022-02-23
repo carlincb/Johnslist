@@ -12,14 +12,14 @@ function Header(props) {
   //loop that appends category data to the imported categories array.
   categoryData.map((i) =>
     importedCategories.push({
-      href: i.categoryName.toLowerCase().replace(/ /g, "-"),
+      href: `/categories/${i.categoryName.toLowerCase().replace(/ /g, "-")}`,
       text: i.categoryName,
     })
   );
 
   //Toggles between light and dark themes
   const [siteTheme, setSiteTheme] = useState(
-    localStorage.getItem("savedTheme") || "./css/dark.css"
+    localStorage.getItem("savedTheme") || "/css/dark.css"
   );
 
   //array the stores objects that are used to render the dropdown menus
@@ -27,14 +27,16 @@ function Header(props) {
     {
       title: "Sell",
       linkInfo: [
-        { href: "my-products", text: "My Products For Sale" },
-        { href: "add-product", text: "Add Product" },
+        { href: "/selling-info", text: "Information" },
+        { href: "/add-product", text: "Add Product" },
+        { href: "/my-products", text: "My Products For Sale" },
       ],
       ariaLabel: "Open seller dropdown",
     },
     {
       title: "Buy",
       linkInfo: [
+
         { href: "wishlist", text: "Wishlist" },
         { href: "marketplace", text: "Marketplace" },
       ],
@@ -51,7 +53,7 @@ function Header(props) {
     <header>
       <link rel="stylesheet" href={siteTheme} />
       <a href="/" id="home-link">
-        <img src="./images/kintsugi_logo.png" alt="Go to Kintsugi home page" />
+        <img src="/images/kintsugi_logo.png" alt="Go to Kintsugi home page" />
       </a>
       <nav id="sale-nav" className="navbar">
         {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
@@ -106,15 +108,15 @@ function Header(props) {
           aria-label="Theme toggle button"
           id="theme-toggle"
           onChange={() => {
-            if (siteTheme === "./css/light.css") {
-              setSiteTheme("./css/dark.css");
-              localStorage.setItem("savedTheme", "./css/dark.css");
+            if (siteTheme === "/css/light.css") {
+              setSiteTheme("/css/dark.css");
+              localStorage.setItem("savedTheme", "/css/dark.css");
             } else {
-              setSiteTheme("./css/light.css");
-              localStorage.setItem("savedTheme", "./css/light.css");
+              setSiteTheme("/css/light.css");
+              localStorage.setItem("savedTheme", "/css/light.css");
             }
           }}
-          checked={siteTheme === "./css/light.css" ? "checked" : ""}
+          checked={siteTheme === "/css/light.css" ? "checked" : ""}
         />
       </nav>
     </header>
