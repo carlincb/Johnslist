@@ -69,8 +69,12 @@ type Product {
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     addProduct(_id: ID, username: String, name: String, image: String, description: String, price: Float): Product
-    deleteProduct(_id: ID!): Product
+    deleteProduct(_id: ID, username: String, name: String, image: String, description: String, price: Float): Product
+
   }
+
+  
 `;
+
 
 module.exports = typeDefs;

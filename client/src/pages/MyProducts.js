@@ -1,35 +1,36 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
-// import Auth from '../utils/auth';
+import { useMutation, useQuery } from '@apollo/client';
+import Auth from '../utils/auth';
 import { MY_PRODUCTS } from '../utils/queries';
 import { REMOVE_PRODUCT } from '../utils/mutations';
 import './myproducts.css';
 
 const MyProducts = () => {
     const { loading, data } = useQuery(MY_PRODUCTS);
+
     const productData = data?.user.listedItems || [];
+    const userID = data?.user.listedItems._id || [];
+    const [deleteProduct, { error }] = useMutation(REMOVE_PRODUCT);
     console.log(productData);
 
-    // const handleDeleteProduct = async (productData) => {
-    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const handleDeleteProduct = async (userID) => {
 
-    //     if (!token) {
-    //         return false;
-    //     }
-
-    //     try {
-    //         const { data } = await deleteProduct({
-    //             variables: { _id }
-
-    //         }); console.log("product deleted");
-
-
-    //         // upon success, remove book's id from localStorage
-    //         removeProductId(_id);
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // };
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if (!token) {
+            return false;
+        }
+        try {
+            const { userID } = await deleteProduct({
+                // _id
+            }); console.log("product deleted", { data });
+        }
+        catch (err) {
+            console.error(err);
+        }
+        if (loading) {
+            return <h2>LOADING...</h2>;
+        }
+    }
     return (
         <div className='productCards'>
             <div className="card" style={{ width: "10%" }}>
@@ -41,15 +42,14 @@ const MyProducts = () => {
                             {product.image ? <img src={product.image} alt={`this is the product image`} /> : null}
                             <div>{product.name}</div>
                             <div>{product.description}</div>
+                            <button onClick={() => handleDeleteProduct(product._id)}>Second thoughts on selling?</button>
                         </div>
-
                     ))
                 )}
-                {/* <button onChange={removeProductId} >Remove this product?</button> */}
             </div>
         </div>
 
-    )
-}
+    );
 
+}
 export default MyProducts;
