@@ -13,16 +13,18 @@ const MyProducts = () => {
     const [deleteProduct, { error }] = useMutation(REMOVE_PRODUCT);
     console.log(productData);
 
-    const handleDeleteProduct = async (userID) => {
+    const handleDeleteProduct = async (productData) => {
 
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
             return false;
         }
         try {
-            const { userID } = await deleteProduct({
-                // _id
-            }); console.log("product deleted", { data });
+            const { productData } = await deleteProduct({
+                variables: {
+                    $id: productData._id
+                }
+            }); console.log("product deleted", { productData });
         }
         catch (err) {
             console.error(err);
