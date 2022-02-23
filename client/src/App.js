@@ -12,7 +12,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import AddProduct from './pages/AddProduct';
-// import UserProducts from './pages/UserProducts';
+import MyProducts from './pages/MyProducts';
 import ProductGallery from './pages/ProductGallery';
 import NoMatch from './pages/NoMatch';
 import './App.css';
@@ -40,13 +40,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <Header />
+        <Header />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/add-product" component={AddProduct} />
-          <Route exact path="/product-gallery" component={ProductGallery} />
+          <Route exact path="/my-products" component={MyProducts} />
+          <Route exact path="/marketplace" component={ProductGallery} />
           {/* <Route exact path="/user-products" component={UserProducts} /> */}
           <Route component={NoMatch} />
         </Switch>

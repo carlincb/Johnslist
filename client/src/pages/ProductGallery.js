@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../utils/queries';
+import './myproducts.css';
 
 const ProductGallery = () => {
     const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -18,13 +19,13 @@ const ProductGallery = () => {
                             <div>{product.name}</div>
                             <div>{product.description}</div>
                         </div>
-                            
+
                     ))
                 )}
 
             </div>
         </div>
-    
+
     )
 }
 
