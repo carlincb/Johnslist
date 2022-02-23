@@ -30,7 +30,6 @@ function Header(props) {
         { href: "/selling-info", text: "Information" },
         { href: "/add-product", text: "Add Product" },
         { href: "/my-products", text: "My Products For Sale" },
-        { href: "/add-product", text: "Add Product" },
       ],
       ariaLabel: "Open seller dropdown",
     },
