@@ -175,11 +175,11 @@ const resolvers = {
             return;
         },
 
-        addWish: async (parent, { productId }, context) => {
+        addWish: async (parent, { _id }, context) => {
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { wishlist: { productId: productId }}},
+                    { $addToSet: { wishlist: { _id: _id }}},
                     { new: true }
                 )
                 return updatedUser;
