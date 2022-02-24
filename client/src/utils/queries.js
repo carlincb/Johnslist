@@ -74,9 +74,6 @@ export const QUERY_USER = gql`
           description
           image
           price
-          category {
-            name
-          }
       }
     }
   }
