@@ -13,7 +13,7 @@ function CategoryPage(props) {
 
     //Queries for the category
     const { data } = useQuery(QUERY_CATEGORY, {
-        variables: { categoryName: currentCategory }
+        variables: { name: currentCategory }
     });
     const categoryData = data?.category || {};
 
@@ -24,7 +24,7 @@ function CategoryPage(props) {
 
     return (
         <main>
-            <h1>{currentCategory}</h1>
+            <h1>{categoryData.name}</h1>
             <section id="product-section">
                 {!categoryData.products.length ? <h2>There are currently no products under this category</h2> :
                 categoryData.products.map(product => (
