@@ -33,9 +33,7 @@ function CategoryPage(props) {
                         <img src={product.image} />
                         <p>{product.description}</p>
                         <p>{product.price}</p>
-                        <Link activeClassName="active" isActive={() => window.location.pathname=== `/buy/${product._id}`}
-                        to={`/buy/${product._id}`}>View</Link>
-                        {/*<a href={`/buy/${product._id}`} className="link-btn">View</a>*/}
+                        <a href={`/buy/${product._id}`} className="link-btn">View</a>
                         {console.log(product._id)}
                     </article>
                 ))}

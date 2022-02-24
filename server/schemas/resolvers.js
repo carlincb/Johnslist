@@ -30,7 +30,7 @@ const resolvers = {
             return await Product.find();
         },
         product: async (parent, { _id }) => {
-            return await Product.findById(_id).populate('category');
+            return await Product.findOne({ _id }).populate('category');
         },
         // TODO: rename this to me
         user: async (parent, args, context) => {

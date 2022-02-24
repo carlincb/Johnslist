@@ -43,7 +43,7 @@ export const QUERY_PRODUCT = gql`
         name
       }
     }
-  }`
+  }`;
 
 export const QUERY_CATEGORIES = gql`
   {

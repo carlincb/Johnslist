@@ -8,12 +8,12 @@ function ProductDetailsBuyer(props) {
     console.log(productId)
 
     const { data, loading } = useQuery(QUERY_PRODUCT, {
-        variables: {_id: productId}
+        variables: { _id: productId }
     });
 
     if (loading) return <h1>Loading...</h1>;
 
-    const productData = data?.products;
+    const productData = data?.product;
     console.log(productData)
 
     return (
