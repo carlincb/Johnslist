@@ -113,6 +113,12 @@ const AddProductPage = () => {
             Price:
             <input name="price" type="text" onChange={handleChange} required />
           </label>
+          <label for="category-select">Category: </label>
+          <select name="category-select">
+            {categoryData.map(category => (
+              <option value={category.name}>{category.name}</option>
+            ))}
+          </select>
           <button className="addProductSubmit" type="submit">
             Submit
           </button>
