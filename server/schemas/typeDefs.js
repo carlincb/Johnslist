@@ -63,6 +63,7 @@ type Product {
     user: User
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
+    allProducts: [Product]
   }
 
   type Mutation {
@@ -71,6 +72,7 @@ type Product {
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     addProduct(_id: ID, username: String, name: String, image: String, description: String, price: Float, category: String): Product
+
     addWish(_id:ID): User
     deleteProduct(productId: ID): User
     deleteWish(_id: ID): User

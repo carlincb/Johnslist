@@ -26,6 +26,9 @@ const resolvers = {
 
             return Product.find(params).populate('category');
         },
+        allProducts: async () => {
+            return await Product.find();
+        },
         product: async (parent, { _id }) => {
             return await Product.findById(_id).populate('category');
         },
@@ -34,7 +37,7 @@ const resolvers = {
             console.log(context.user)
             if (context.user) {
                 console.log("---found current user ----");
-                const user = await User.findById(context.user._id).populate("listedItems");
+                const user = await User.findById(context.user._id).populate('wishlist');
                 console.log('user: ', user)
                 // user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 

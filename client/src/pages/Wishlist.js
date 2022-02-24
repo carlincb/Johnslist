@@ -9,11 +9,11 @@ const Wishlist = () => {
     const [deleteWish, { error }] = useMutation(DELETE_WISH);
     console.log(error);
     const userData = data?.user || [];
+    console.log("--------",userData);
     const productData = data?.user.wishlist || [];
 
     const handleDeleteWish = async (productId) => {
-        console.log(productId);
-        console.log(productData);
+
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
             return false;
