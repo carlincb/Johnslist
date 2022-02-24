@@ -12,7 +12,7 @@ function CategoryPage(props) {
     .join(' ');
 
     //Queries for the category
-    const { data, error } = useQuery(QUERY_CATEGORY, {
+    const { data } = useQuery(QUERY_CATEGORY, {
         variables: { categoryName: currentCategory }
     });
     const categoryData = data?.category || {};
@@ -23,7 +23,21 @@ function CategoryPage(props) {
     if (!categoryData._id) return <h1>{currentCategory} doesn't exist or there was a connection problem</h1>;
 
     return (
-        <h1>{currentCategory}</h1>
+        <main>
+            <h1>{currentCategory}</h1>
+            <section id="product-section">
+                {!categoryData.products.length ? <h2>There are currently no products under this category</h2> :
+                categoryData.products.map(product => (
+                    <article className="card" key={product._id}>
+                        <h2>{product.name}</h2>
+                        <img src={product.image} />
+                        <p>{product.description}</p>
+                        <p>{product.price}</p>
+                        <a href="/" className="link-btn">View</a>
+                    </article>
+                ))}
+            </section>
+        </main>
     )
 }
 

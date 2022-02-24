@@ -198,47 +198,6 @@ button:hover {
   padding-bottom: 1.5rem;
 }
 
-/******** Classes for layout and grid use ********/
-
-.invisible {
-  display: none;
-}
-
-.flex {
-  display: flex;
-}
-
-.inline {
-  display: inline;
-}
-
-.block {
-  display: block;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.column {
-  flex-direction: column;
-}
-
-.row {
-  flex-direction: row;
-}
-
-/******** unique id styles ********/
-
-#login-info-nav {
-  margin-left: auto;
-  margin-right: 1vw;
-}
-
-#login-info-nav a {
-  color: black;
-}
-
 /* Mobile responsive */
 @media only screen and (min-width: 1500px) {
   .banner {
@@ -292,4 +251,67 @@ button:hover {
   .profile {
     display: none;
   }
+}
+
+@media only screen and (max-width: 996px) {
+  header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+} 
+
+/******** Classes for layout and grid use ********/
+
+.invisible {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+/******** unique id styles ********/
+
+#login-info-nav {
+  margin-left: auto;
+  margin-right: 1vw;
+}
+
+#login-info-nav a {
+  color: black;
+}
+
+/* Mobile Responsive */
+
+@media only screen and (max-width: 996px) {
+  #login-info-nav{
+    margin-right: auto;
+  }
+
+  #home-link {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
