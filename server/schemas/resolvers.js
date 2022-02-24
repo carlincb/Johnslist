@@ -166,10 +166,11 @@ const resolvers = {
         deleteProduct: async (parent, { productId }, context) => {
             if (context.user) {
                 const updatedProduct = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { listedItems: { productId: productId } } },
-                    { new: true }
+                    context.user._id,
+                    { $pull: { listedItems: productId } },
+                    { new: true, runValidators: true }
                 )
+                console.log(updatedProduct);
                 return updatedProduct;
             }
             return;
@@ -179,7 +180,7 @@ const resolvers = {
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { wishlist: { productId: productId }}},
+                    { $addToSet: { wishlist: { productId: productId } } },
                     { new: true }
                 )
                 return updatedUser;
@@ -191,13 +192,13 @@ const resolvers = {
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { wishlist: { productId: productId }}},
+                    { $pull: { wishlist: { productId: productId } } },
                     { new: true }
                 )
                 return updatedUser;
             }
             return;
-        },        
+        },
     }
 };
 
