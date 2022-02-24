@@ -48,10 +48,19 @@ export const DELETE_WISH = gql`
           wishlist {
             products {
               _id
-              name 
             }
           }
         }
+      }
+    }
+`
+
+export const ADD_WISH = gql`
+    mutation addWish($_id: ID) {
+      addWish(_id: $_id) {
+         wishlist {
+           _id
+         }
       }
     }
 `

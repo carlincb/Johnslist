@@ -12,7 +12,7 @@ const Wishlist = () => {
     const productData = data?.user.wishlist || [];
 
     const handleDeleteWish = async (productId) => {
-
+        console.log(productData);
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
             return false;

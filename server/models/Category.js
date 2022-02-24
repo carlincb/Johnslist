@@ -27,6 +27,6 @@ categorySchema.virtual('productsCount').get(function () {
     return this.products.length;
 });
 
-const Category = model('category', categorySchema);
+const Category = model('Category', categorySchema);
 
 module.exports = Category;
