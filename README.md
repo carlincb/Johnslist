@@ -147,7 +147,7 @@ No contributions needed at this time, but please feel free to reach out to us at
 
 ## Links
 
-[Live Link](https://kintsugi-johnslist.herokuapp.com/)
+[Live Link](https://the-kintsugi-app.herokuapp.com/)
 
 [GitHub Link](https://github.com/carlincb/johnslist)
 
