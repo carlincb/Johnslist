@@ -24,8 +24,8 @@ export const LOGIN = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-    mutation addProduct($_id: ID, $name: String, $username: String, $price: Float, $image: String, $description: String) {
-      addProduct(_id: $_id, name: $name, username: $username, price: $price, image: $image, description: $description) { 
+    mutation addProduct($_id: ID, $name: String, $username: String, $price: Float, $image: String, $description: String, $category: String) {
+      addProduct(_id: $_id, name: $name, username: $username, price: $price, image: $image, description: $description, category: $category) { 
           _id
           username
          }
@@ -40,3 +40,19 @@ export const REMOVE_PRODUCT = gql`
          }
   }
 `;
+
+export const DELETE_WISH = gql`
+    mutation deleteWish($_id: ID) {
+      deleteWish(_id: $_id) {
+        user {
+          username
+          wishlist {
+            products {
+              _id
+              name 
+            }
+          }
+        }
+      }
+    }
+`
