@@ -9,25 +9,19 @@ const MyProducts = () => {
     const { loading, data } = useQuery(MY_PRODUCTS);
 
     const productData = data?.user.listedItems || [];
-    localStorage.setItem('my_products', JSON.stringify(productData));
-
     const [deleteProduct, { error }] = useMutation(REMOVE_PRODUCT);
+    console.log(productData);
 
-
-    const handleDeleteProduct = async () => {
-        const myProducts = JSON.parse(localStorage.getItem('my_products'));
-        console.log(myProducts.$id);
-
+    const handleDeleteProduct = async (productId) => {
+        console.log(productId);
         const token = Auth.loggedIn() ? Auth.getToken() : null;
         if (!token) {
             return false;
         }
         try {
-            const { myProducts } = await deleteProduct({
-                variables: {
-                    $id: myProducts._id
-                }
-            }); console.log("product deleted", { productData });
+            const { data } = await deleteProduct({
+                variables: { productId }
+            }); console.log("product deleted", { data });
         }
         catch (err) {
             console.error(err);
