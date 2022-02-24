@@ -4,15 +4,18 @@ const productSchema = new Schema(
     {
         name: {
             type: String,
+            required: true,
         },
         image: {
             type: String
         },
         description: {
-            type: String
+            type: String,
+            required: true,
         },
         price: {
             type: Number,
+            required: true,
         },
         addedAt: {
             type: Date,
@@ -22,7 +25,7 @@ const productSchema = new Schema(
         category: {
             type: Schema.Types.ObjectId,
             ref: 'Category',
-            required: false
+            required: true,
 
         }
     },
