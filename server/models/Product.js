@@ -20,7 +20,7 @@ const productSchema = new Schema(
         addedAt: {
             type: Date,
             default: Date.now,
-            get: d => d.toLocaleString('en-us', { year: "numeric", month: "2-digit", day: "two-digit" })
+            get: d => d.toLocaleString('en-us', { year: "numeric", month: "2-digit", day: "2-digit" })
         },
         category: {
             type: Schema.Types.ObjectId,

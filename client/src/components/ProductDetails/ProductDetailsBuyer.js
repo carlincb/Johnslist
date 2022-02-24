@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_PRODUCT } from '../../utils/queries';
 import { useParams } from 'react-router-dom';
 
 function ProductDetailsBuyer(props) {
-    const productId = useParams();
+    const { productId } = useParams();
+    console.log(productId)
 
-    const { data, loading } = useQuery(QUERY_PRODUCTS, {
+    const { data, loading } = useQuery(QUERY_PRODUCT, {
         variables: {_id: productId}
     });
 
     if (loading) return <h1>Loading...</h1>;
 
-    const productData = data?.products[0];
+    const productData = data?.products;
     console.log(productData)
 
     return (
