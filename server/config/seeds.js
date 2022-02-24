@@ -15,7 +15,7 @@ db.once('open', async () => {
         { name: 'Miscellaneous'}
     ]);
 
-    console.log('The categories have been seeded.');
+    console.log('The categories have been seeded.'); 
 
     // /* remove the front comment '//' to get rid of this seed data if you forked this project
 
