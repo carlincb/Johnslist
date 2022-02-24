@@ -3,7 +3,7 @@ const Product = require('./Product');
 
 const categorySchema = new Schema(
     {
-        categoryName: {
+        name: {
             type: String,
             required: true,
             minLength: 1,
