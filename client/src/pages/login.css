@@ -1,0 +1,112 @@
+.login-page {
+  background-image: url("../images/pagebackground2.png");
+  opacity: 0.9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "form-login";
+}
+.form-login {
+  grid-area: form-login;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 60rem 60rem;
+  grid-gap: 2rem;
+  grid-template-areas: "title-login login-form-container";
+}
+
+.title-login {
+  grid-area: title-login;
+  margin-top: 15vh;
+  align-self: top;
+  justify-self: center;
+  padding: 2rem;
+  background-color: var(--transparent);
+  text-shadow: 0.1rem 0.1rem 0rem #747474;
+  background-color: #747474;
+  height: fit-content;
+}
+
+.login-form-container {
+  position: relative;
+  grid-area: login-form-container;
+  text-align: center;
+  margin-top: 20vh;
+  align-self: top;
+  justify-self: center;
+  width: 60rem;
+  height: 60rem;
+  background-color: white;
+  color: var(--ks-secondary);
+  border-radius: 0.3rem;
+  height: fit-content;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+.imageLogoLogin {
+  height: 6rem;
+  float: right;
+}
+
+form {
+  font-size: 2rem;
+  /* text-transform: uppercase; */
+}
+form input {
+  width: 56rem;
+  background-color: var(--ks-highlight);
+  border-radius: 0.3rem;
+  border: 0.1rem;
+  height: 4.5rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+button {
+  background-color: var(--ks-primary);
+  font-size: 1.5rem;
+  border-radius: 3rem;
+  border: 0rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.addProductSubmit,
+.imageContainerLogin {
+  width: 56rem;
+}
+.addProductSubmit {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.navbar {
+  align-items: center;
+  align-self: center;
+  height: 8vh;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.Signup-Link {
+  float: left;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+.Submit-Login {
+  float: right;
+  margin: 2rem;
+}
+
+.transform-login {
+  font-size: 6rem;
+}

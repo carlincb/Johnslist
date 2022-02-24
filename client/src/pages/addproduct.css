@@ -47,7 +47,7 @@
   font-size: 1.3rem;
 }
 .imageLogoAddProduct {
-  height: 5rem;
+  height: 6rem;
   float: right;
 }
 .trashTreasureDiv {
@@ -60,12 +60,16 @@ form {
   /* text-transform: uppercase; */
 }
 form input {
-  width: 58rem;
+  width: 56rem;
   background-color: var(--ks-highlight);
   border-radius: 0.3rem;
   border: 0.1rem;
-  height: 3rem;
+  height: 4.5rem;
   font-size: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 button {
   background-color: var(--ks-primary);
@@ -81,7 +85,7 @@ button {
 }
 .addProductSubmit,
 .imageContainerAddProduct {
-  width: 58rem;
+  width: 56rem;
 }
 .addProductSubmit {
   margin-top: 2rem;
