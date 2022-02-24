@@ -25,7 +25,7 @@ export const QUERY_PRODUCTS = gql`
       image
       price
       category {
-        categoryName
+        name
       }
     }
   }
@@ -36,7 +36,7 @@ export const QUERY_CATEGORIES = gql`
   {
     categories {
       _id
-      categoryName
+      name
     }
   }
 `;
@@ -45,7 +45,7 @@ export const QUERY_CATEGORY = gql`
   {
     categories {
       _id
-      categoryName
+      name
       products
     }
   }
@@ -58,3 +58,21 @@ export const QUERY_CHECKOUT = gql`
     }
   }
 `;
+
+export const QUERY_USER = gql`
+  query {
+    user {
+      username
+      wishlist {
+          _id
+          name
+          description
+          image
+          price
+          category {
+            name
+          }
+      }
+    }
+  }
+`
