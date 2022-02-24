@@ -42,8 +42,8 @@ export const QUERY_CATEGORIES = gql`
 `;
 
 export const QUERY_CATEGORY = gql`
-  query Category($categoryName: String!) {
-    category(categoryName: $categoryName) {
+  query Category($name: String!) {
+    category(name: $name) {
       _id
       name
       products {

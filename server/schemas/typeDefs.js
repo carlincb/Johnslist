@@ -57,7 +57,7 @@ type Product {
   
   type Query {
     categories: [Category]
-    category(categoryName: String!): Category
+    category(name: String!): Category
     products(category: ID, name: String): [Product]
     product(_id: ID!): Product
     user: User
