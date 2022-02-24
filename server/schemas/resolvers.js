@@ -9,7 +9,7 @@ const resolvers = {
             return await Category.find()
         },
         category: async (parent, { name }) => {
-            return await Category.findOne({ name }).populate('product');
+            return await Category.findOne({ name }).populate('products');
         },
         products: async (parent, { category, name }) => {
             const params = {};
@@ -37,7 +37,7 @@ const resolvers = {
             console.log(context.user)
             if (context.user) {
                 console.log("---found current user ----");
-                const user = await User.findById(context.user._id).populate('wishlist');
+                const user = await User.findById(context.user._id).populate('wishlist').populate('listedItems');
                 console.log('user: ', user)
                 // user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -147,22 +147,28 @@ const resolvers = {
 
 
         addProduct: async (parent, { _id, name, username, price, description, image, category }, context) => {
-            console.log(context.user)
+            // console.log(context.user)
             if (context.user) {
-                console.log("---- about to create product ----")
+                // console.log("---- about to create product ----")
 
                 //add product needs to be pushed to the sell
                 const product = await Product.create({ _id, name, username, price, description, image, category });
 
-                console.log("----product----", product);
+                // console.log("----product----", product);
 
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $addToSet: { listedItems: product._id } },
                     { new: true }
-                )
+                );
+                const updatedCategory = await Category.findByIdAndUpdate(
+                    { _id: category },
+                    { $addToSet: { products: product._id } },
+                    { new: true }
+                    );
+                console.log("-------category------", updatedCategory);
 
-                return { product, updatedUser };
+                return { product, updatedUser, updatedCategory };
             }
         },
 
