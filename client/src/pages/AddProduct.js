@@ -54,11 +54,21 @@ const AddProductPage = () => {
           category: formState.category,
         },
       });
+      setFormState({
+        name: "",
+        username: "",
+        description: "",
+        price: "",
+        image: "",  
+        category: "",
+      });
       console.log(data);
     } catch (err) {
       console.error(err);
-    }
+    };
+    window.location.assign("/my-products");
   };
+
   return (
     // select category
     <section className="add-product-page">
