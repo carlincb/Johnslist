@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../utils/mutations";
 import "./addproduct.css";
 import ImageUploads from "../components/ImageUploads";
+import { QUERY_CATEGORIES } from "../utils/queries";
 
 const AddProductPage = () => {
   const [image, setImage] = useState("");
@@ -11,11 +12,14 @@ const AddProductPage = () => {
     username: "",
     description: "",
     price: "",
-    image: "",
+    image: "",  
+    category: "",
   });
   // const [category, setCategory] = React.useState("");
+  const { data, loading } = useQuery(QUERY_CATEGORIES);
+  const categoryData = data?.categories || [];
   // const categories = [
-  // "Household",
+  //     "Household",
   //     "Clothing",
   //     "Outdoor",
   //     "Collectible",
@@ -36,6 +40,7 @@ const AddProductPage = () => {
 
   const handleFormSubmit = async (event) => {
     console.log('----------------HANDLE SUBMIT----------------------')
+    console.log(formState);
     event.preventDefault();
 
     try {
@@ -46,6 +51,7 @@ const AddProductPage = () => {
           image: formState.image,
           description: formState.description,
           price: parseFloat(formState.price),
+          category: formState.category,
         },
       });
       console.log(data);
@@ -110,6 +116,12 @@ const AddProductPage = () => {
         Price:
         <input name="price" type="text" onChange={handleChange} required />
       </label>
+      <label>Choose a Category:</label>  
+      <select name="category" onChange={handleChange} required>
+       {categoryData.map((category) => 
+         <option key={category._id} value={category._id}>{category.name}</option>
+       )} 
+      </select>
       <button type="submit">Submit</button>
     </form >
   );
