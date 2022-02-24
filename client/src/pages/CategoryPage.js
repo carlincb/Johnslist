@@ -12,12 +12,12 @@ function CategoryPage(props) {
     .join(' ');
 
     //Queries for the category
-    const { data } = useQuery(QUERY_CATEGORY, {
+    const { data, loading } = useQuery(QUERY_CATEGORY, {
         variables: { name: currentCategory }
     });
     const categoryData = data?.category || {};
 
-    //console.log(data?.category);
+    if (loading) return <h1>Loading...</h1>
 
     //Conditional rendering that displays an error if the user enters a category that doesn't exist.
     if (!categoryData._id) return <h1>{currentCategory} doesn't exist or there was a connection problem</h1>;
@@ -33,7 +33,7 @@ function CategoryPage(props) {
                         <img src={product.image} />
                         <p>{product.description}</p>
                         <p>{product.price}</p>
-                        <a href="/" className="link-btn">View</a>
+                        <a href={`/buy/${product._id}`} className="link-btn">View</a>
                     </article>
                 ))}
             </section>
