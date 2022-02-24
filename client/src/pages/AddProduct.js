@@ -116,7 +116,7 @@ const AddProductPage = () => {
           <label htmlFor="category">Choose a Category:</label>  
             <select name="category" onChange={handleChange} required>
               {categoryData.map((category) => 
-                <option key={category._id} value={category.name}>{category.name}</option>
+                <option key={category._id} value={category._id}>{category.name}</option>
        )} 
       </select>
           <button className="addProductSubmit" type="submit">
