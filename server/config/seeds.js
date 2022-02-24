@@ -7,12 +7,12 @@ db.once('open', async () => {
 
     //This is the seeds for the category. Edit here to change the categories then run 'npm run seed' to add them.
     const categories = await Category.insertMany([
-        { categoryName: 'Household' },
-        { categoryName: 'Clothing' },
-        { categoryName: 'Outdoor' },
-        { categoryName: 'Collectible' },
-        { categoryName: 'Appliances' },
-        { categoryName: 'Miscellaneous'}
+        { name: 'Household' },
+        { name: 'Clothing' },
+        { name: 'Outdoor' },
+        { name: 'Collectible' },
+        { name: 'Appliances' },
+        { name: 'Miscellaneous'}
     ]);
 
     console.log('The categories have been seeded.');
