@@ -12,8 +12,8 @@ function Header(props) {
   //loop that appends category data to the imported categories array.
   categoryData.map((i) =>
     importedCategories.push({
-      href: `/categories/${i.categoryName.toLowerCase().replace(/ /g, "-")}`,
-      text: i.categoryName,
+      href: `/categories/${i.name.toLowerCase().replace(/ /g, "-")}`,
+      text: i.name,
     })
   );
 
@@ -37,7 +37,7 @@ function Header(props) {
       title: "Buy",
       linkInfo: [
 
-        { href: "wishlist", text: "Wishlist" },
+        { href: "/wishlist", text: "Wishlist" },
         { href: "marketplace", text: "Marketplace" },
       ],
       ariaLabel: "Open buyer dropdown",
