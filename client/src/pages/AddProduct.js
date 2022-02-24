@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../utils/mutations";
 import "./addproduct.css";
 import ImageUploads from "../components/ImageUploads";
+import { QUERY_CATEGORIES } from "../utils/queries";
 
 const AddProductPage = () => {
   const [image, setImage] = useState("");
@@ -11,11 +12,14 @@ const AddProductPage = () => {
     username: "",
     description: "",
     price: "",
-    image: "",
+    image: "",  
+    category: "",
   });
   // const [category, setCategory] = React.useState("");
+  const { data, loading } = useQuery(QUERY_CATEGORIES);
+  const categoryData = data?.categories || [];
   // const categories = [
-  // "Household",
+  //     "Household",
   //     "Clothing",
   //     "Outdoor",
   //     "Collectible",
@@ -35,7 +39,8 @@ const AddProductPage = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    console.log("----------------HANDLE SUBMIT----------------------");
+    console.log('----------------HANDLE SUBMIT----------------------')
+    console.log(formState);
     event.preventDefault();
 
     try {
@@ -46,6 +51,7 @@ const AddProductPage = () => {
           image: formState.image,
           description: formState.description,
           price: parseFloat(formState.price),
+          category: formState.category,
         },
       });
       console.log(data);
@@ -54,6 +60,7 @@ const AddProductPage = () => {
     }
   };
   return (
+    // select category
     <section className="add-product-page">
       <form className="form-add-product" onSubmit={handleFormSubmit}>
         <div className="title-add-product">

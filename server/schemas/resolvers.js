@@ -143,13 +143,13 @@ const resolvers = {
         },
 
 
-        addProduct: async (parent, { _id, name, username, price, description, image }, context) => {
+        addProduct: async (parent, { _id, name, username, price, description, image, category }, context) => {
             console.log(context.user)
             if (context.user) {
                 console.log("---- about to create product ----")
 
                 //add product needs to be pushed to the sell
-                const product = await Product.create({ _id, name, username, price, description, image });
+                const product = await Product.create({ _id, name, username, price, description, image, category });
 
                 console.log("----product----", product);
 
@@ -174,6 +174,30 @@ const resolvers = {
             }
             return;
         },
+
+        addWish: async (parent, { productId }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { wishlist: { productId: productId }}},
+                    { new: true }
+                )
+                return updatedUser;
+            }
+            return;
+        },
+
+        deleteWish: async (parent, { productId }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { wishlist: { productId: productId }}},
+                    { new: true }
+                )
+                return updatedUser;
+            }
+            return;
+        },        
     }
 };
 
