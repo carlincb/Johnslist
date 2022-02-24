@@ -1,11 +1,14 @@
-.productCards {
-    width: 20rem;
+.card {
     display: grid;
-    grid-template-columns: 25rem 25rem 25rem;
+    grid-template-columns: 5rem;
     grid-gap: 1rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-left: 5%;
     flex-wrap: wrap;
     margin-bottom: 5%;
     color: black;
+}
+
+img {
+    width: 25rem;
 }
