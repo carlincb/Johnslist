@@ -298,7 +298,7 @@ button:hover {
   margin-right: 1vw;
 }
 
-#login-info-nav a {
+#login-info-nav .link-btn {
   color: black;
 }
 

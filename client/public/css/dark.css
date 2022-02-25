@@ -39,3 +39,10 @@ a:visited {
   }
 }
 
+.nav-item {
+  color: var(--ks-highlight);
+}
+
+#login-info-nav a {
+  color: var(--ks-highlight);
+}
