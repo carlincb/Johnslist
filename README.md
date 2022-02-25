@@ -112,6 +112,7 @@ Please see below for examples of this application's usage:
 - https://startbootstrap.com/
 - https://www.youtube.com/watch?v=W8OVkAVfAvE
 - https://www.designify.com/
+- https://hacks.mozilla.org/2017/04/replace-bootstrap-layouts-with-css-grid/
 - https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 - https://unsplash.com/
 
