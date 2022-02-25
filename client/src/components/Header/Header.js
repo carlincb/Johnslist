@@ -80,7 +80,7 @@ function Header(props) {
         ))}
       </nav>
       <nav id="login-info-nav" className="flex navbar">
-        <a className="nav-item" href="about">
+        <a className="nav-item" href="/about">
           About Us
         </a>
         {Auth.loggedIn() ? (
@@ -90,7 +90,7 @@ function Header(props) {
         ) : (
           <a
             className="nav-item"
-            href="login"
+            href="/login"
             id="login-link"
             className="link-btn nav-item"
           >
