@@ -1,9 +1,9 @@
 import React from 'react';
-import './AboutUs.css';
 
 function AboutUs(props) {
     return (
         <main id="about-main">
+            <link rel="stylesheet" href="/css/AboutUs.css" />
             <h1 id="about-header">ABOUT</h1>
             <article id="about-article">
                 <p>Do you have stuff in your house that is broken but not quite junk?

@@ -1,6 +1,7 @@
 body {
     color: white;
-    font-family: Open Sans;
+    font-family: 'Open Sans';
+    background-image: url('/images/pagebackground4.png') !important;
 }
 
 #about-main {
@@ -10,7 +11,8 @@ body {
 #about-header {
     background-color: black;
     color: white;
-    max-width: 6%;
+    max-width: 6.5%;
+    max-height: 50%;
     overflow-wrap: break-word;
     font-size: 960%;
     text-align: center;
