@@ -6,10 +6,11 @@ import { DELETE_WISH } from '../utils/mutations';
 
 const Wishlist = () => {
     const { loading, data } = useQuery(QUERY_USER);
+    console.log(data);
     const [deleteWish, { error }] = useMutation(DELETE_WISH);
     console.log(error);
     const userData = data?.user || [];
-    console.log("--------",userData);
+    console.log("--------", userData);
     const productData = data?.user.wishlist || [];
 
     const handleDeleteWish = async (productId) => {

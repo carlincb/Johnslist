@@ -148,13 +148,14 @@ const resolvers = {
 
         addProduct: async (parent, { _id, name, username, price, description, image, category }, context) => {
             // console.log(context.user)
+            console.log
             if (context.user) {
                 // console.log("---- about to create product ----")
 
                 //add product needs to be pushed to the sell
                 const product = await Product.create({ _id, name, username, price, description, image, category });
 
-                // console.log("----product----", product);
+                console.log("----product----", product);
 
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -165,7 +166,7 @@ const resolvers = {
                     { _id: category },
                     { $addToSet: { products: product._id } },
                     { new: true }
-                    );
+                );
                 console.log("-------category------", updatedCategory);
 
                 return { product, updatedUser, updatedCategory };
@@ -190,8 +191,8 @@ const resolvers = {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id },
 
-                    { $addToSet: { wishlist: { _id: _id }}},
-                    { $addToSet: { wishlist: { productId: productId } } },
+                    { $addToSet: { wishlist: { _id: _id } } },
+                    // { $addToSet: { wishlist: { productId: productId } } },
                     { new: true }
                 )
                 return updatedUser;
