@@ -18,6 +18,8 @@ import NoMatch from './pages/NoMatch';
 import CategoryPage from './pages/CategoryPage';
 import Wishlist from './pages/Wishlist';
 import AboutUs from './pages/AboutUs';
+import SellerInformation from './pages/SellerInformation'
+import BuyerInformation from './pages/BuyerInformation'
 import ProductDetailsBuyer from './components/ProductDetails/ProductDetailsBuyer';
 import './App.css';
 
@@ -49,8 +51,10 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/selling-info" component={SellerInformation} />
           <Route exact path="/add-product" component={AddProduct} />
           <Route exact path="/my-products" component={MyProducts} />
+          <Route exact path="/buying-info" component={BuyerInformation} />
           <Route exact path="/marketplace" component={ProductGallery} />
           <Route exact path="/wishlist" component={Wishlist} />
           <Route exact path="/about" component={AboutUs} />
