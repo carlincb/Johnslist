@@ -1,0 +1,16 @@
+main {
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    color: black;
+}
+
+#price-tag {
+    flex-direction: row;
+}
+
+#price-label {
+    margin-right: auto;
+}

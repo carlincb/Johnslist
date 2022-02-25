@@ -37,7 +37,7 @@ function ProductDetailsBuyer(props) {
     console.log(productData)
 
     return (
-        <main>
+        <main className="flex">
             <link rel="stylesheet" href="/css/buyPage.css" />
             <img src={productData.image} />
             <div className="flex column">
@@ -45,13 +45,17 @@ function ProductDetailsBuyer(props) {
                     <h1>Product Details</h1>
                     <h2>{productData.name}</h2>
                     <p>{productData.description}</p>
-                    <p>Price: {`$${productData.price}`}</p>
+                    <p>Added on {productData.addedAt}</p>
                 </div>
-                <a id="add-link" class="link-btn"
+                <div id="price-tag" className="card flex">
+                    <span id="price-label">Price</span>
+                    <span>{`$${productData.price}`}</span> 
+                </div>
+                <a id="add-link" className="link-btn"
                 href={'/whatever-buyer-link'}>
                     Add to Cart
                 </a>
-                <button onClick={handleWish(productData._id)}>Add To Wishlist</button>
+                <button onClick={() => handleWish(productData._id)}>Add To Wishlist</button>
             </div>
         </main>
     );
