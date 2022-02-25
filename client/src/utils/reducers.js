@@ -12,24 +12,17 @@ import {
 
 export const reducer = (state, action) => {
     switch (action.type) {
+        case UPDATE_PRODUCTS:
+            return {
+                ...state,
+                products: [...action.products],
+            };
 
         case ADD_TO_CART:
             return {
                 ...state,
                 cartOpen: true,
                 cart: [...state.cart, action.product],
-            };
-
-        case UPDATE_CART_QUANTITY:
-            return {
-                ...state,
-                cartOpen: true,
-                cart: state.cart.map(product => {
-                    if (action._id === product._id) {
-                        product.purchaseQuantity = action.purchaseQuantity
-                    }
-                    return product
-                })
             };
 
         case REMOVE_FROM_CART:
@@ -50,11 +43,17 @@ export const reducer = (state, action) => {
                 cart: []
             };
 
-        case TOGGLE_CART:
+        case UPDATE_CATEGORIES:
             return {
                 ...state,
-                cartOpen: !state.cartOpen
+                categories: [...action.categories],
             };
+
+        case UPDATE_CURRENT_CATEGORY:
+            return {
+                ...state,
+                currentCategory: action.currentCategory
+            }
 
         default:
             return state;

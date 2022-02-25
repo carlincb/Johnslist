@@ -7,6 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { StoreProvider } from './utils/GlobalState';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -47,6 +48,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <StoreProvider>
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -65,6 +67,7 @@ function App() {
           <Route exact path="/buy/:productId" component={ProductDetailsBuyer} />
           <Route component={NoMatch} />
         </Switch>
+        </StoreProvider>
       </Router>
     </ApolloProvider>
   );
