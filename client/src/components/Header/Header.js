@@ -36,6 +36,7 @@ function Header(props) {
     {
       title: "Buy",
       linkInfo: [
+        { href: "/buying-info", text: "Information" },
         { href: "/wishlist", text: "Wishlist" },
         { href: "/marketplace", text: "Marketplace" },
       ],
