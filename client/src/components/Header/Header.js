@@ -56,8 +56,8 @@ function Header(props) {
       </a>
       <nav id="sale-nav" className="navbar">
         {/* Creates a dropdown menu with it's links for all the objects in the dropdown array */}
-        {dropdownMenus.map((menu) => (
-          <span className="dropdown-block">
+        {dropdownMenus.map((menu, i) => (
+          <span key={i} className="dropdown-block">
             <button
               className="link-dropdown nav-item"
               aria-label={menu.ariaLabel}

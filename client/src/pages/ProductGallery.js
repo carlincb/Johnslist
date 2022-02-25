@@ -8,11 +8,12 @@ import './myproducts.css';
 const ProductGallery = () => {
     const { loading, data } = useQuery(QUERY_PRODUCTS);
     const productData = data?.products || [];
-
     const [addWish, { error }] = useMutation(ADD_WISH);
 
     const handleWish = async (productId) => {
-        
+        console.log(productId);
+        console.log(productData);
+
         const token = Auth.loggedIn() ? Auth.getToken() : null;
 
         if (!token) {
