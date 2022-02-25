@@ -24,6 +24,7 @@ function CategoryPage(props) {
 
     return (
         <main>
+            <link rel="stylesheet" href="/css/CategoryPage.css" />
             <h1>{categoryData.name}</h1>
             <section id="product-section">
                 {!categoryData.products.length ? <h2>There are currently no products under this category</h2> :
