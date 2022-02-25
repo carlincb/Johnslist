@@ -85,9 +85,12 @@ function Header(props) {
           About Us
         </a>
         {Auth.loggedIn() ? (
-          <a href="/" onClick={Auth.logout} className="link-btn nav-item">
-            Logout
-          </a>
+          <>
+            <a href="/cart" aria-label="open-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            <a href="/" onClick={Auth.logout} className="link-btn nav-item">
+              Logout
+            </a>
+          </>
         ) : (
           <a
             className="nav-item"
