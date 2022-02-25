@@ -1,0 +1,22 @@
+main {
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    padding: 2%;
+    color: black;
+}
+
+#price-tag {
+    margin-top: 1%;
+    flex-direction: row;
+}
+
+#price-label {
+    margin-right: auto;
+}
+
+main img {
+    width: 70rem;
+}
