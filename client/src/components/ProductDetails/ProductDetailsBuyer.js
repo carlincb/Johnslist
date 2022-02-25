@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_PRODUCT } from '../../utils/queries';
 import { useParams } from 'react-router-dom';
+import { ADD_WISH } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 function ProductDetailsBuyer(props) {
     const { productId } = useParams();
+    const [addWish] = useMutation(ADD_WISH);
     console.log(productId)
 
     const { data, loading } = useQuery(QUERY_PRODUCT, {
@@ -13,11 +16,29 @@ function ProductDetailsBuyer(props) {
 
     if (loading) return <h1>Loading...</h1>;
 
+    const handleWish = async (productId) => {
+
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            return false;
+        }
+
+        try {
+            const { data } = await addWish({
+                variables: { _id: productId }
+            });
+        } catch (err) {
+            console.error(err);
+        };
+    }
+
     const productData = data?.product;
     console.log(productData)
 
     return (
         <main>
+            <link rel="stylesheet" href="/css/buyPage.css" />
             <img src={productData.image} />
             <div className="flex column">
                 <div className="card flex column">
@@ -26,10 +47,11 @@ function ProductDetailsBuyer(props) {
                     <p>{productData.description}</p>
                     <p>Price: {`$${productData.price}`}</p>
                 </div>
-                <a id="add-link" class=""
+                <a id="add-link" class="link-btn"
                 href={'/whatever-buyer-link'}>
                     Add to Cart
                 </a>
+                <button onClick={handleWish(productData._id)}>Add To Wishlist</button>
             </div>
         </main>
     );

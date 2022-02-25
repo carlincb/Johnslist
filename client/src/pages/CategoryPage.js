@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_CATEGORY } from '../utils/queries';
 import { useParams, Link } from 'react-router-dom';
+import { ADD_WISH } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 function CategoryPage(props) {
     const { category } = useParams();
+    const [addWish] = useMutation(ADD_WISH);
     //Gets the current category from the url to be used in a query and displaying
     const currentCategory = category.slice('/categories/')
     .replace(/-/g, ' ').split(' ')
@@ -18,6 +21,23 @@ function CategoryPage(props) {
     const categoryData = data?.category || {};
 
     if (loading) return <h1>Loading...</h1>
+
+    const handleWish = async (productId) => {
+
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            return false;
+        }
+
+        try {
+            const { data } = await addWish({
+                variables: { _id: productId }
+            });
+        } catch (err) {
+            console.error(err);
+        };
+    }
 
     //Conditional rendering that displays an error if the user enters a category that doesn't exist.
     if (!categoryData._id) return <h1>{currentCategory} doesn't exist or there was a connection problem</h1>;
@@ -33,9 +53,9 @@ function CategoryPage(props) {
                         <h2>{product.name}</h2>
                         <img src={product.image} />
                         <p>{product.description}</p>
-                        <p>{product.price}</p>
+                        <p>${product.price}</p>
                         <a href={`/buy/${product._id}`} className="link-btn">View</a>
-                        {console.log(product._id)}
+                        <button onClick={() => handleWish(product._id)}>Add to Wishlist</button>
                     </article>
                 ))}
             </section>

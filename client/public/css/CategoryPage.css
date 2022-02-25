@@ -1,5 +1,16 @@
 #product-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
+
+.card {
+    margin-bottom: 2%;
+    color: black;
+    padding: 2%;
+    box-shadow: rgb(17, 17, 17) .5rem .2rem;
+}
+
+.card img {
+    width: 25rem;
+} 
