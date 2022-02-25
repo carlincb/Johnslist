@@ -12,11 +12,6 @@ import {
 
 export const reducer = (state, action) => {
     switch (action.type) {
-        case UPDATE_PRODUCTS:
-            return {
-                ...state,
-                products: [...action.products],
-            };
 
         case ADD_TO_CART:
             return {
@@ -60,18 +55,6 @@ export const reducer = (state, action) => {
                 ...state,
                 cartOpen: !state.cartOpen
             };
-
-        case UPDATE_CATEGORIES:
-            return {
-                ...state,
-                categories: [...action.categories],
-            };
-
-        case UPDATE_CURRENT_CATEGORY:
-            return {
-                ...state,
-                currentCategory: action.currentCategory
-            }
 
         default:
             return state;
