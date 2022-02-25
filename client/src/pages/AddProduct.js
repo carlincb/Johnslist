@@ -39,10 +39,14 @@ const AddProductPage = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    console.log('----------------HANDLE SUBMIT----------------------')
+    console.log("----------------HANDLE SUBMIT----------------------");
     console.log(formState);
     event.preventDefault();
 
+    if (!formState.category) {
+      alert("No category selected.");
+      return;
+    }
     try {
       const { data } = await addProduct({
         variables: {
@@ -50,7 +54,7 @@ const AddProductPage = () => {
           username: formState.username,
           image: formState.image,
           description: formState.description,
-          price: parseFloat(formState.price),
+          price: parseFloat(formState.price.replace(/[^0-9.]+/g, "")),
           category: formState.category,
         },
       });
@@ -65,7 +69,7 @@ const AddProductPage = () => {
       console.log(data);
     } catch (err) {
       console.error(err);
-    };
+    }
     // window.location.assign("/my-products");
   };
 
@@ -123,11 +127,19 @@ const AddProductPage = () => {
             Price:
             <input name="price" type="text" onChange={handleChange} required />
           </label>
-          <label htmlFor="category">Choose a Category:</label>
-          <select name="category" onChange={handleChange} required>
-            {categoryData.map((category) =>
-              <option key={category._id} value={category._id}>{category.name}</option>
-            )}
+          <label htmlFor="category">Category: </label>
+          <select
+            name="category"
+            defaultValue="6218466ab58701080b179c76"
+            onChange={handleChange}
+            required
+          >
+            <option value="6218466ab58701080b179c76">Select an Option</option>
+            {categoryData.map((category) => (
+              <option key={category._id} value={category._id}>
+                {category.name}
+              </option>
+            ))}
           </select>
           <button className="addProductSubmit" type="submit">
             Submit
