@@ -7,6 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { StoreProvider } from './utils/GlobalState';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -17,6 +18,7 @@ import ProductGallery from './pages/ProductGallery';
 import NoMatch from './pages/NoMatch';
 import CategoryPage from './pages/CategoryPage';
 import Wishlist from './pages/Wishlist';
+import ShoppingCart from './pages/ShoppingCart';
 import AboutUs from './pages/AboutUs';
 import SellerInformation from './pages/SellerInformation'
 import BuyerInformation from './pages/BuyerInformation'
@@ -46,6 +48,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <StoreProvider>
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -57,12 +60,14 @@ function App() {
           <Route exact path="/buying-info" component={BuyerInformation} />
           <Route exact path="/marketplace" component={ProductGallery} />
           <Route exact path="/wishlist" component={Wishlist} />
+          <Route exact path="/cart" component={ShoppingCart} />
           <Route exact path="/about" component={AboutUs} />
           {/* <Route exact path="/user-products" component={UserProducts} /> */}
           <Route exact path="/categories/:category" component={CategoryPage} />
           <Route exact path="/buy/:productId" component={ProductDetailsBuyer} />
           <Route component={NoMatch} />
         </Switch>
+        </StoreProvider>
       </Router>
     </ApolloProvider>
   );

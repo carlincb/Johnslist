@@ -23,6 +23,24 @@ export const LOGIN = gql`
   }
 `;
 
+export const ADD_ORDER = gql`
+  mutation addOrder($products: [ID]!) {
+    addOrder(products: $products) {
+      purchaseDate
+      products {
+        _id
+        name
+        description
+        price
+        quantity
+        category {
+          name
+        }
+      }
+    }
+  }
+`;
+
 export const ADD_PRODUCT = gql`
     mutation addProduct($_id: ID, $name: String, $username: String, $price: Float, $image: String, $description: String, $category: String) {
       addProduct(_id: $_id, name: $name, username: $username, price: $price, image: $image, description: $description, category: $category) { 
