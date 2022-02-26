@@ -52,9 +52,9 @@ function ProductDetailsBuyer(props) {
         } else {
           dispatch({
             type: ADD_TO_CART,
-            product: {productId}
+            product: {...productData}
           });
-          idbPromise('cart', 'put');
+          idbPromise('cart', 'put', {...productData});
         } 
     }
     
