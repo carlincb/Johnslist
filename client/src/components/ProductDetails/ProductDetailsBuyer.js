@@ -72,11 +72,11 @@ function ProductDetailsBuyer(props) {
                     <span>{`$${productData.price}`}</span> 
                 </div>
                 <div id="button-spot">
-                    <a id="add-link" className="link-btn"
+                    <button id="add-link"
                     onClick={() => addToCart()}
-                    href={'/cart'}>
+                    >
                         Add to Cart
-                    </a>
+                    </button>
                     <button onClick={() => handleWish(productData._id)}>Add To Wishlist</button>
                 </div>
             </div>

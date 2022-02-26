@@ -11,6 +11,7 @@ const stripePromise = loadStripe('pk_test_51KXB4HIM9k0nTT2QJxomjvo21MMfufeZIJeYd
 
 function ShoppingCart(props) {
     const [state, dispatch] = useStoreContext();
+    console.log(state)
     //Grabs the checkout data
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
