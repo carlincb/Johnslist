@@ -15,16 +15,15 @@ function ProductDetailsBuyer(props) {
     const [addWish] = useMutation(ADD_WISH);
     const [state, dispatch] = useStoreContext();
 
-    console.log(productId)
-
-
     const { data, loading } = useQuery(QUERY_PRODUCT, {
         variables: { _id: productId }
     });
 
     const productData = data?.product;
     
-    const { cart } = state
+    const { cart } = state;
+
+    console.log(state)
 
     if (loading) return <h1>Loading...</h1>;
 
@@ -57,8 +56,6 @@ function ProductDetailsBuyer(props) {
           idbPromise('cart', 'put', {...productData});
         } 
     }
-    
-    console.log(productData)
 
     return (
         <main className="flex">
