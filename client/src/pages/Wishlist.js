@@ -3,7 +3,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
 import { DELETE_WISH } from "../utils/mutations";
-import "./wishlist.css";
+import "./myproducts.css";
 
 const Wishlist = () => {
   const { loading, data } = useQuery(QUERY_USER);
