@@ -77,10 +77,21 @@ Please see below for examples of this application's usage:
 ### Finished Webpage
 
 ![12](client/public/images/homepage.png)
+![14](client/public/images/homepage2.png)
 
 ### Responsive Design
 
+![15](client/public/images/a.png)
 ![13](client/public/images/about.png)
+
+### Layout
+
+![16](client/public/images/b.png)
+![17](client/public/images/c.png)
+![18](client/public/images/d.png)
+![19](client/public/images/e.png)
+![20](client/public/images/f.png)
+![21](client/public/images/g.png)
 
 ### Workflow
 
