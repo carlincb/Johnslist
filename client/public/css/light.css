@@ -45,3 +45,8 @@ a:visited {
     background-image: url(../images/arthomelight.png);
   }
 }
+
+#checkbox-span {
+  background-color: var(--ks-background);
+  color: white;
+}
