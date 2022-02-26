@@ -52,7 +52,7 @@ function ProductDetailsBuyer(props) {
         } else {
           dispatch({
             type: ADD_TO_CART,
-            product: {...productData}
+            product: {productId}
           });
           idbPromise('cart', 'put');
         } 

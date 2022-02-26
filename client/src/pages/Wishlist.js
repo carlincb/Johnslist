@@ -41,7 +41,7 @@ const Wishlist = () => {
                 ) : (
                     productData.map((product) => (
                         <div key={product._id} >
-                            {product.image ? <img src={product.image} alt={`this is the product image`} /> : null}
+                            {product.image ? <img src={product.image} alt={`this is the product image`} className="scaled-image"/> : null}
                             <div>{product.name}</div>
                             <div>{product.description}</div>
                             <button onClick={() => handleDeleteWish(product._id)}>Remove Item From Wishlist?</button>
