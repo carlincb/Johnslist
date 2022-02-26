@@ -11,7 +11,7 @@ Kintsugi is a place where sellers of janky stuff meet with their discerning buye
 [~ Come Visit Us Today!](https://the-kintsugi-app.herokuapp.com/)
 
 **Tools & Skills Used**<br>
-React, React Router DOM, Webpack, Heroku, MongoDB, Mongoose ODM, JWT, GraphQL, Node, Express, JavaScript, HTML, CSS, and Styled Components.
+React, React Router DOM, Webpack, Heroku, MongoDB, Mongoose ODM, JWT, GraphQL, Node, Express, JavaScript, HTML, and CSS.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -73,6 +73,14 @@ This is a webpage, so no installation is necessary.
 ## Usage
 
 Please see below for examples of this application's usage:
+
+### Finished Webpage
+
+![12](client/public/images/homepage.png)
+
+### Responsive Design
+
+![13](client/public/images/about.png)
 
 ### Workflow
 
