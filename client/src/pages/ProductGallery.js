@@ -31,16 +31,16 @@ const ProductGallery = () => {
 
     return (
         <div className='productCards'>
-            <div className="card" style={{ width: "10%" }}>
+            <div className="card" >
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
                     productData.map((product) => (
                         <div key={product._id} >
-                            {product.image ? <img src={product.image} alt={`this is the product image`} /> : null}
+                            {product.image ? <img src={product.image} alt={`this is the product image`} className="scaled-img"/> : null}
                             <div>{product.name}</div>
                             <div>{product.description}</div>
-                            <div>{product.price}</div>
+                            <div>${product.price}</div>
                             <button onClick={() => handleWish(product._id)}>Add to Wishlist</button>
                         </div>
 

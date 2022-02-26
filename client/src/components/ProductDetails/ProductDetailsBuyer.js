@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { ADD_WISH } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { ADD_TO_CART } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 function ProductDetailsBuyer(props) {
@@ -14,11 +14,15 @@ function ProductDetailsBuyer(props) {
     //Variables for adding to wishlist and adding to cart
     const [addWish] = useMutation(ADD_WISH);
     const [state, dispatch] = useStoreContext();
+
     console.log(productId)
+
 
     const { data, loading } = useQuery(QUERY_PRODUCT, {
         variables: { _id: productId }
     });
+
+    const productData = data?.product;
     
     const { cart } = state
 
@@ -47,13 +51,13 @@ function ProductDetailsBuyer(props) {
             console.log('this item is already added')
         } else {
           dispatch({
-            type: ADD_TO_CART
+            type: ADD_TO_CART,
+            product: {...productData}
           });
           idbPromise('cart', 'put');
         } 
     }
     
-    const productData = data?.product;
     console.log(productData)
 
     return (

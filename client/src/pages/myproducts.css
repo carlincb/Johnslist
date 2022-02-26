@@ -3,6 +3,11 @@
 *:after {
   box-sizing: inherit;
 }
+.productCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 .cardProduct {
   padding: 0.4rem;
   line-height: 1.42857143;
@@ -12,6 +17,10 @@
   border-radius: 0.4rem;
   max-width: 41rem;
   float: right;
+}
+.card {
+  color: var(--ks-secondary);
+  padding: 5%;
 }
 .productName {
   font-weight: 600;
@@ -23,6 +32,9 @@
 }
 .myProductsButton {
   float: right;
+}
+.scaled-img{
+  width: 10rem;
 }
 .thumbnailProduct {
   padding: 0.4rem;
