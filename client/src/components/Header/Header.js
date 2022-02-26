@@ -81,12 +81,14 @@ function Header(props) {
         ))}
       </nav>
       <nav id="login-info-nav" className="flex navbar">
-        <a className="nav-item" href="/about">
+        <a className="nav-item about-item" href="/about">
           About Us
         </a>
         {Auth.loggedIn() ? (
           <>
-            <a href="/cart" aria-label="open-cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            <a href="/cart" aria-label="open-cart">
+              <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            </a>
             <a href="/" onClick={Auth.logout} className="link-btn nav-item">
               Logout
             </a>

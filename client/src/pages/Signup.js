@@ -40,6 +40,7 @@ function Signup(props) {
     <div className="signup-page">
       <div className="form-signup">
         <div className="title-signup">
+          <h2 className="transform-signup1">SIGNUP</h2>
           <h2 className="transform-signup">S</h2>
           <h2 className="transform-signup">&nbsp;I</h2>
           <h2 className="transform-signup">G</h2>

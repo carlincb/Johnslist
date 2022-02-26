@@ -14,11 +14,11 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--ks-highlight); 
+  color: var(--ks-highlight);
 }
 a:visited {
   color: var(--ks-link-color);
-} 
+}
 .about-us-link {
   color: var(--ks-secondary);
 }
@@ -37,6 +37,7 @@ a:visited {
 .btn-2 {
   background-color: var(--ks-background);
 }
+
 .profile:after {
   content: url(../images/arthomelight.png);
 }
