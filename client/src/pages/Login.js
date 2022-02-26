@@ -34,6 +34,7 @@ function Login(props) {
     <section className="login-page">
       <div className="form-login">
         <div className="title-login">
+          <h2 className="transform-login1">LOGIN</h2>
           <h2 className="transform-login">L</h2>
           <h2 className="transform-login">O</h2>
           <h2 className="transform-login">G</h2>

@@ -42,7 +42,9 @@ a:visited {
 .nav-item {
   color: var(--ks-highlight);
 }
-
+.about-item {
+  color: var(--ks-highlight) !important;
+}
 #login-info-nav {
   color: var(--ks-highlight);
 }

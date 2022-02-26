@@ -1,5 +1,5 @@
 .add-product-page {
-  background-image: url("../images/pagebackground2.png");
+  background-image: url("../images/pagebackground3.png");
   opacity: 0.9;
   background-position: center;
   background-repeat: no-repeat;
@@ -97,4 +97,54 @@ button {
   height: 8vh;
   padding: 1rem;
   margin-top: 1rem;
+}
+/* Mobile responsive */
+@media only screen and (min-width: 1500px) {
+  .form-add-product {
+    grid-template-columns: 1fr 60rem 60rem 1fr;
+    grid-template-areas: ". title-add-product add-product-form-container .";
+  }
+}
+@media only screen and (max-width: 1256px) {
+  .form-add-product {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title-add-product"
+      "add-product-form-container";
+  }
+  .add-product-form-container {
+    grid-area: add-product-form-container;
+    align-self: top;
+    justify-self: center;
+  }
+  .add-product-form-container:after {
+    display: none;
+  }
+}
+@media only screen and (max-width: 948px) {
+  .add-product-form-container {
+    grid-area: add-product-form-container;
+    align-self: top;
+    justify-self: center;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .title-add-product {
+    transform: scale(0.85);
+  }
+}
+
+@media only screen and (max-width: 996px) {
+  title-add-product {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
 }

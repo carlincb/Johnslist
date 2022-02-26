@@ -1,0 +1,49 @@
+#seller-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#seller-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.4rem;
+  line-height: 1.42857143;
+  border: 0.1rem solid rgb(152, 152, 152);
+  background-color: white;
+  color: var(--ks-secondary);
+  border-radius: 0.4rem;
+  max-width: 58rem;
+  max-height: 58rem;
+  min-height: 58rem;
+  float: left;
+  margin: 1rem;
+}
+#seller-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.4rem;
+  line-height: 1.42857143;
+  border: 0.1rem solid rgb(254, 254, 254);
+  background-image: linear-gradient(
+      to bottom,
+      rgba(48, 48, 48, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("../images/broken-jar.png");
+  color: var(--ks-highlight);
+  border-radius: 0.4rem;
+  max-width: 58rem;
+  max-height: 58rem;
+  min-height: 58rem;
+  float: right;
+  margin: 1rem;
+  padding: 2rem;
+  font-size: 3rem;
+}
