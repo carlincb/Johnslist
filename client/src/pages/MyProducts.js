@@ -53,7 +53,10 @@ const MyProducts = () => {
                 ) : null}
                 <div className="productName">{product.name}</div>
                 <div className="productDescription">{product.description}</div>
-                <button className="myProductsButton" onClick={() => handleDeleteProduct(product._id)}>
+                <button
+                  className="myProductsButton"
+                  onClick={() => handleDeleteProduct(product._id)}
+                >
                   Second thoughts on selling?
                 </button>
               </div>
