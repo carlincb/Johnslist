@@ -4,6 +4,10 @@
   box-sizing: inherit;
 }
 .cardProduct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0.4rem;
   line-height: 1.42857143;
   border: 0.1rem solid rgb(152, 152, 152);
@@ -11,6 +15,9 @@
   color: var(--ks-secondary);
   border-radius: 0.4rem;
   max-width: 41rem;
+  max-height: 55rem;
+  min-width: 41rem;
+  min-height: 55rem;
   float: right;
   margin: 1rem;
 }
@@ -38,6 +45,7 @@
 .imageProduct {
   display: block;
   max-width: 40rem;
+  max-height: 40rem;
   height: auto;
 }
 
