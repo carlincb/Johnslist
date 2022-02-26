@@ -43,6 +43,11 @@ a:visited {
   color: var(--ks-highlight);
 }
 
-#login-info-nav a {
+#login-info-nav {
   color: var(--ks-highlight);
+}
+
+#checkbox-span {
+  background-color: var(--ks-primary);
+  color: black;
 }

@@ -2,23 +2,23 @@ import { useReducer } from "react";
 import {
     UPDATE_PRODUCTS,
     ADD_TO_CART,
-    UPDATE_CART_QUANTITY,
     REMOVE_FROM_CART,
     UPDATE_CATEGORIES,
     UPDATE_CURRENT_CATEGORY,
     CLEAR_CART,
-    TOGGLE_CART
 } from "./actions";
 
 export const reducer = (state, action) => {
+    console.log(state)
     switch (action.type) {
         case UPDATE_PRODUCTS:
             return {
                 ...state,
-                products: [...action.products],
+                product: [...action.product],
             };
 
         case ADD_TO_CART:
+            console.log(action.product);
             return {
                 ...state,
                 cart: [...state.cart, action.product],

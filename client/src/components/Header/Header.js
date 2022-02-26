@@ -102,22 +102,25 @@ function Header(props) {
           </a>
         )}
         {/* Checkbox for toggling between light and dark themes */}
-        <input
-          className="nav-item"
-          type="checkbox"
-          aria-label="Theme toggle button"
-          id="theme-toggle"
-          onChange={() => {
-            if (siteTheme === "/css/light.css") {
-              setSiteTheme("/css/dark.css");
-              localStorage.setItem("savedTheme", "/css/dark.css");
-            } else {
-              setSiteTheme("/css/light.css");
-              localStorage.setItem("savedTheme", "/css/light.css");
-            }
-          }}
-          checked={siteTheme === "/css/light.css" ? "checked" : ""}
-        />
+        <span id="checkbox-span">
+          <input
+            className="nav-item"
+            type="checkbox"
+            aria-label="Theme toggle button"
+            id="theme-toggle"
+            onChange={() => {
+              if (siteTheme === "/css/light.css") {
+                setSiteTheme("/css/dark.css");
+                localStorage.setItem("savedTheme", "/css/dark.css");
+              } else {
+                setSiteTheme("/css/light.css");
+                localStorage.setItem("savedTheme", "/css/light.css");
+              }
+            }}
+            checked={siteTheme === "/css/light.css" ? "checked" : ""}
+          />
+          <i className="fas fa-paint-brush"></i>
+        </span>
       </nav>
     </header>
   );
