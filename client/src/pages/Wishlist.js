@@ -3,7 +3,6 @@ import { useMutation, useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
 import { QUERY_USER } from "../utils/queries";
 import { DELETE_WISH } from "../utils/mutations";
-import "./myproducts.css";
 
 const Wishlist = () => {
   const { loading, data } = useQuery(QUERY_USER);
@@ -32,40 +31,34 @@ const Wishlist = () => {
   };
 
   return (
-    <div className="productCardsContainer">
-      <div className="rowProducts">
-        <div className="colProducts-xs-12 text-center">
-          <h1>My Wishlist</h1>
-          <br />
-        </div>
-        <div className="colProducts-lg-3 colProducts-md-4 colProducts-xs-6">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            productData.map((product) => (
-              <div className="cardProduct" key={product._id}>
-                {product.image ? (
-                  <img
-                    className="imageProduct thumbnailProduct"
-                    src={product.image}
-                    alt={`This is the product image`}
-                    className="scaled-image"
-                  />
-                ) : null}
-                <div className="productName">{product.name}</div>
-                <div className="productDescription">{product.description}</div>
-                <button
-                  className="myProductsButton"
-                  onClick={() => handleDeleteWish(product._id)}
-                >
-                  Remove Item From Wishlist?
-                </button>
-              </div>
-            ))
-          )}
-        </div>
+    <main>
+      <link rel="stylesheet" href="/css/CategoryPage.css" />
+      <div className="colProducts-xs-12 text-center">
+        <h1>My Wishlist</h1>
+        <br />
       </div>
-    </div>
+      <section id="product-section">
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          productData.map((product) => (
+            <article className="card" key={product._id}>
+              {product.image ? (
+                <img src={product.image} alt={`This is the product image`} />
+              ) : null}
+              <div>{product.name}</div>
+              <div>{product.description}</div>
+              <button
+                className="link-btn"
+                onClick={() => handleDeleteWish(product._id)}
+              >
+                Remove Item From Wishlist?
+              </button>
+            </article>
+          ))
+        )}
+      </section>
+    </main>
   );
 };
 

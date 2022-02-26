@@ -1,16 +1,16 @@
 #product-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .card {
-    margin-bottom: 2%;
-    color: black;
-    padding: 2%;
-    box-shadow: rgb(17, 17, 17) .5rem .2rem;
+  margin-bottom: 2%;
+  color: black;
+  padding: 2%;
+  box-shadow: rgb(17, 17, 17) 0.5rem 0.2rem;
 }
 
 .card img {
-    width: 25rem;
-} 
+  width: 25rem;
+}
