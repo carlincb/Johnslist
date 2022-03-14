@@ -59,7 +59,7 @@ function ProductDetailsBuyer(props) {
 
     return (
         <main className="flex">
-            <link rel="stylesheet" href="/css/buyPage.css" />
+            <link rel="stylesheet" type="text/css" href="/css/buyPage.css" />
             <img src={productData.image} />
             <div className="flex column">
                 <div className="card flex column">
