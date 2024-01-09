@@ -1,5 +1,5 @@
 # app.yaml
 
-runtime: nodejs12
+runtime: nodejs20
 
 instance_class: F1
