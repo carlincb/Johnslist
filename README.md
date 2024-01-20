@@ -167,7 +167,7 @@ No contributions needed at this time, but please feel free to reach out to us at
 
 ## Links
 
-[Live Link](https://the-kintsugi-app.herokuapp.com/)
+[Live Link](https://neon-metric-410700.uc.r.appspot.com/)
 
 [GitHub Link](https://github.com/carlincb/johnslist)
 
